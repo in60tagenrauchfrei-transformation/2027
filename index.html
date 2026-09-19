@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Frank Zimmermann - Rebellion Rauchfrei 2027 (Ultimativ)</title>
+    
+    <!-- Apple iOS / Safari Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Rauchfrei 2027">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #060911;
+            --card-bg: rgba(13, 22, 38, 0.7);
+            --card-border: rgba(0, 243, 255, 0.18);
+            --neon-cyan: #00f3ff;
+            --cyan-glow: rgba(0, 243, 255, 0.4);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            --success-green: #00ff88;
+            --accent-purple: #b14bff;
+            --accent-yellow: #ffe14d;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 243, 255, 0.06) 0%, transparent 50%);
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(40px, calc(20px + env(safe-area-inset-bottom)));
+            padding-left: max(0px, env(safe-area-inset-left));
+            padding-right: max(0px, env(safe-area-inset-right));
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--neon-cyan);
+            filter: blur(120px);
+            -webkit-filter: blur(120px);
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .orb-1 { top: 10%; left: -100px; }
+        .orb-2 { top: 45%; right: -120px; }
+        .orb-3 { top: 80%; left: -80px; }
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 12px 20px;
+            background: rgba(10, 16, 28, 0.8);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        .program-phase {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .header-title { text-align: center; margin-bottom: 40px; }
+
+        .header-title h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .header-title h1 span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px var(--cyan-glow);
+        }
+
+        .header-title p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--neon-cyan);
+        }
+
+        .card.completed { border-color: rgba(0, 255, 136, 0.4); }
+        .card.completed::before { background: var(--success-green); }
+
+        .intro-card {
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 32px;
+        }
+
+        .intro-card h2, .card h3 {
+            font-size: 1.4rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .quote-box {
+            font-style: italic;
+            border-left: 3px solid var(--neon-cyan);
+            padding: 12px 20px;
+            background: rgba(0, 243, 255, 0.05);
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .highlight-box {
+            background: rgba(0, 243, 255, 0.05);
+            border-left: 3px solid var(--neon-cyan);
+            padding: 16px 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .highlight-box span.bold-cyan {
+            color: var(--neon-cyan);
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 6px;
+        }
+
+        .neuro-box {
+            background: rgba(6, 12, 24, 0.8);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .neuro-box h5 {
+            color: var(--neon-cyan);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-box {
+            background: rgba(0, 255, 136, 0.05);
+            border-left: 3px solid var(--success-green);
+            padding: 16px 20px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .action-box h5 {
+            color: var(--success-green);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .kickstart-box {
+            background: rgba(0, 195, 255, 0.08);
+            border-left: 3px solid #00c3ff;
+            padding: 16px 20px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .kickstart-box h5 {
+            color: #00c3ff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            flex-shrink: 0;
+        }
+
+        .story-p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .facts-grid, .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            background: rgba(6, 12, 24, 0.7);
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            border-radius: 12px;
+            padding: 16px 18px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-cyan);
+        }
+
+        .timeline-item .time {
+            color: var(--neon-cyan);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .timeline-item .effect {
+            color: #fff;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .facts-grid, .timeline-grid, .metrics-grid, .rebellion-stats, .input-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .container { padding: 15px 10px; }
+            .card { padding: 20px; }
+        }
+
+        .fact-item {
+            background: rgba(6, 12, 24, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+
+        .fact-item h4 {
+            color: var(--neon-cyan);
+            font-size: 1rem;
+            margin-bottom: 6px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .launch-steps {
+            list-style: none;
+            counter-reset: launch-counter;
+            margin-top: 15px;
+        }
+
+        .launch-steps li {
+            counter-increment: launch-counter;
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 20px;
+        }
+
+        .launch-steps li::before {
+            content: counter(launch-counter);
+            position: absolute;
+            left: 0; top: 0;
+            width: 32px; height: 32px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+        }
+
+        .launch-steps h4 { color: #fff; margin-bottom: 4px; }
+
+        .progress-sticky {
+            position: sticky;
+            top: max(20px, env(safe-area-inset-top));
+            z-index: 100;
+            background: rgba(6, 9, 17, 0.95);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 0 25px var(--cyan-glow);
+        }
+
+        .progress-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--success-green));
+            transition: width 0.6s ease;
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .input-grid label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .input-grid input {
+            width: 100%;
+            background: rgba(6, 12, 24, 0.7);
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .input-grid input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--cyan-glow);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .metric-tile {
+            background: rgba(6, 12, 24, 0.7);
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            border-radius: 12px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+
+        .metric-tile .label {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .metric-tile .value {
+            color: var(--neon-cyan);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .metric-tile .unit {
+            color: var(--text-white);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        .btn-save {
+            margin-top: 18px;
+            background: var(--neon-cyan);
+            color: #040914;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 12px 28px;
+            min-height: 44px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .btn-save:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            padding: 8px 0;
+            min-height: 44px;
+            transition: color 0.2s ease;
+        }
+
+        .day-header:hover .day-title-preview { color: var(--neon-cyan); }
+        .day-header-left { display: flex; align-items: center; gap: 16px; }
+
+        .day-badge {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .day-title-preview {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .day-header-right { display: flex; align-items: center; gap: 14px; }
+
+        .phase-tag {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .chevron-icon {
+            font-size: 1.1rem;
+            color: var(--neon-cyan);
+            transition: transform 0.3s ease;
+            width: 28px; height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 50%;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .card.open .chevron-icon {
+            transform: rotate(180deg);
+            background: var(--neon-cyan);
+            color: #040914;
+        }
+
+        .day-content {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 243, 255, 0.15);
+            margin-top: 15px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .card.open .day-content { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-box {
+            background: rgba(10, 20, 38, 0.9);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .quiz-title {
+            color: var(--neon-cyan);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 12px 16px;
+            min-height: 44px;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-btn:hover {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        .quiz-btn.correct {
+            border-color: var(--success-green) !important;
+            background: rgba(0, 255, 136, 0.15) !important;
+            color: var(--success-green) !important;
+        }
+
+        .quiz-btn.wrong {
+            border-color: #ff4444 !important;
+            color: #ff6666 !important;
+        }
+
+        .quiz-explain {
+            margin-top: 12px;
+            padding: 12px 16px;
+            background: rgba(0, 243, 255, 0.08);
+            border-left: 3px solid var(--neon-cyan);
+            border-radius: 0 8px 8px 0;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .quiz-explain.show { display: block; }
+
+        .btn-complete {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 12px 24px;
+            min-height: 44px;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-complete:hover {
+            background: var(--neon-cyan);
+            color: #040914;
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .btn-complete.is-done {
+            background: var(--success-green);
+            border-color: var(--success-green);
+            color: #040914;
+        }
+
+        .cta-card {
+            text-align: center;
+            border: 1px solid var(--neon-cyan);
+            padding: 40px 30px;
+        }
+
+        .btn-switch {
+            background: var(--neon-cyan);
+            color: #040914;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            padding: 18px 42px;
+            min-height: 50px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 25px var(--cyan-glow);
+            transition: transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .btn-switch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px var(--neon-cyan);
+        }
+
+        .btn-switch.active {
+            background: var(--success-green);
+            box-shadow: 0 0 35px rgba(0, 255, 136, 0.5);
+        }
+
+        .status-msg {
+            font-size: 0.95rem;
+            color: var(--neon-cyan);
+            font-weight: 600;
+            margin-top: 15px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .status-msg.show { opacity: 1; }
+
+        .footer {
+            margin-top: 60px;
+            padding: 40px 20px 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            border-radius: 16px 16px 0 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-quote {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px var(--cyan-glow);
+            margin-bottom: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 0.95rem;
+            color: var(--text-white);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .footer-copyright span.author { color: var(--neon-cyan); }
+
+        .footer-legal {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 20px auto;
+            line-height: 1.5;
+        }
+
+        .footer-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-contact a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .footer-separator { color: rgba(0, 243, 255, 0.4); }
+
+        /* ============ REBELLION FINAL SCREEN ============ */
+        .rebellion-screen {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(6, 9, 17, 0.97), rgba(0, 0, 0, 0.99));
+            z-index: 9999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .rebellion-screen.show { display: flex; }
+
+        .rebellion-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .rebellion-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            color: #fff;
+        }
+
+        .rebellion-title {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00f3ff, #00ff88, #ffe14d, #00f3ff);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow-shift 4s linear infinite;
+            margin-bottom: 12px;
+        }
+
+        @keyframes rainbow-shift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        .rebellion-sub {
+            font-size: 1.15rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--cyan-glow);
+            margin-bottom: 30px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .rebellion-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 20px var(--neon-cyan);
+            margin-bottom: 8px;
+        }
+
+        .rebellion-line {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 26px;
+        }
+
+        .rebellion-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+            margin: 28px 0;
+        }
+
+        .rebellion-stat {
+            background: rgba(0, 243, 255, 0.08);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .rebellion-stat .label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .rebellion-stat .value {
+            color: var(--success-green);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .rebellion-stat .unit {
+            color: #fff;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        .rebellion-quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #fff;
+            border-left: 3px solid var(--success-green);
+            padding: 14px 22px;
+            background: rgba(0, 255, 136, 0.05);
+            margin: 26px auto;
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .rebellion-quote span.author {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-weight: 800;
+            color: var(--success-green);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .btn-rebellion {
+            background: var(--success-green);
+            color: #040914;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 16px 38px;
+            min-height: 48px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
+            transition: transform 0.2s ease;
+            margin-top: 14px;
+            font-family: inherit;
+        }
+
+        .btn-rebellion:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.7);
+        }
+
+        .btn-rebellion.secondary {
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            box-shadow: none;
+            margin-left: 10px;
+        }
+
+        .btn-rebellion.secondary:hover {
+            background: var(--neon-cyan);
+            color: #040914;
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <div class="container">
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="tag">
+                <span class="pulse-dot"></span>
+                System aktiv
+            </div>
+            <div class="program-phase">Rebellion Rauchfrei 2027 – Ultimative Edition</div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="header-title">
+            <h1>Frank Zimmermann – <span>Rauchfrei-Rebellion 2027</span></h1>
+            <p class="subtitle">Dein ultimativer 21-Tage-Transformationsplan (dein Fahrplan in ein rauchfreies Leben) inkl. wissenschaftlichem Zeitstrahl der Erholung und persönlicher Auswertung</p>
+        </header>
+
+        <!-- Welcome Card -->
+        <div class="card intro-card">
+            <h2>Willkommen in deiner Rebellion</h2>
+            <p class="story-p">Diese Seite ist dein persönlicher Begleiter auf dem Weg in ein rauchfreies Leben. Du (und nur du) entscheidest jetzt, dass Schluss ist – nicht morgen, nicht nächste Woche, sondern genau heute. In den nächsten 21 Tagen (drei Wochen) lernst du deinen Körper, dein Gehirn und deine Gewohnheiten Schritt für Schritt neu kennen. Jede Aufgabe ist klein genug, um sie sofort umzusetzen, und groß genug, um wirklich etwas zu verändern. Du bist keine Versagerin und kein Versager, die oder der „verzichten muss“ – du bist eine Rebellin oder ein Rebell, die oder der sich befreit. Diese Seite hält dir den Spiegel vor, feiert deine Fortschritte und zeigt dir in Echtzeit, was dein Körper und dein Geldbeutel bereits gewonnen haben.</p>
+            <div class="highlight-box">
+                <span class="bold-cyan">Dein Versprechen an dich selbst:</span>
+                Ich übernehme ab heute die Verantwortung (die Regie) für mein Leben. Ich rauche nicht mehr – ich atme, ich lebe, ich bin frei.
+            </div>
+        </div>
+
+        <!-- Wissenschaftlicher Zeitstrahl der Erholung -->
+        <div class="card">
+            <div class="section-header">
+                <div class="icon-wrapper">&#129516;</div>
+                <h3>Wissenschaftlicher Zeitstrahl der Erholung</h3>
+            </div>
+            <p class="story-p">Sobald du aufhörst, beginnt dein Körper sofort mit der Regeneration (mit der Heilung). Die folgenden Zeiten sind wissenschaftlich gut dokumentiert und zeigen dir, was Stunde für Stunde in deinem Inneren passiert. Lies dir diese Punkte immer wieder durch, wenn du schwach wirst – sie sind dein biologischer Beweis, dass jede rauchfreie Minute zählt.</p>
+
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="time">&#9201; 20 Minuten</div>
+                    <div class="effect">Dein Puls und dein Blutdruck sinken auf Normalwerte zurück. Deine Hände und Füße werden wieder besser durchblutet (wärmer).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">&#9201; 8 Stunden</div>
+                    <div class="effect">Der Kohlenmonoxid-Spiegel (ein giftiges Abgas im Rauch) in deinem Blut fällt auf die Hälfte. Dein Sauerstoffgehalt normalisiert sich – dein Körper bekommt wieder richtig Luft.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">&#9201; 24 Stunden</div>
+                    <div class="effect">Das Herzinfarkt-Risiko (die Gefahr für einen Herzinfarkt) beginnt bereits zu sinken. Dein Herz muss nicht mehr gegen die Giftstoffe anarbeiten.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">&#9201; 48 Stunden</div>
+                    <div class="effect">Dein Geruchs- und Geschmackssinn beginnen sich zu erholen. Plötzlich schmecken Lebensmittel wieder intensiver und riechen frischer.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">&#9201; 1 Jahr</div>
+                    <div class="effect">Dein Risiko für eine koronare Herzkrankheit (Verengung der Herzkranzgefäße) sinkt auf die Hälfte eines Rauchers. Du hast dein Herz buchstäblich halbiert geschützt.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">&#9201; 10 Jahre</div>
+                    <div class="effect">Dein Lungenkrebs-Risiko halbiert sich im Vergleich zu einem Raucher. Du hast dein Leben um viele gesunde Jahre verlängert.</div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                „Der Körper ist das einzige Haus, in dem du wirklich wohnst. Gib auf ihn acht – er hat keine Immobilie, in die er umziehen kann, wenn du ihn ruinierst.“
+                <span class="quote-author">- Frank Zimmermann, Rauchfrei-Rebellion 2027</span>
+            </div>
+        </div>
+
+        <!-- Mindset Card -->
+        <div class="card">
+            <div class="section-header">
+                <div class="icon-wrapper">&#129504;</div>
+                <h3>Dein Mindset (deine innere Haltung)</h3>
+            </div>
+            <p class="story-p">Bevor du anfängst, brauchst du die richtige innere Einstellung. Die folgenden vier Grundsätze begleiten dich durch alle 21 Tage und darüber hinaus. Sie sind das Fundament (die Grundmauer) deiner Rebellion.</p>
+
+            <div class="facts-grid">
+                <div class="fact-item">
+                    <h4>1. Es gibt keine Probleme</h4>
+                    <p>Nur Aufgaben, die du Schritt für Schritt löst. Dein Gehirn versucht dir einzureden, dass das Aufhören kompliziert ist – das ist eine Lüge der Sucht. Es ist einfach, wenn du es einfach machst.</p>
+                </div>
+                <div class="fact-item">
+                    <h4>2. Du bist kein Opfer</h4>
+                    <p>Du bist kein „armer Raucher, der leidet“. Du bist eine Rebellin oder ein Rebell, die oder der sich befreit. Diese neue Rolle verändert alles: deine Haltung, deine Energie, dein Blick auf dich selbst.</p>
+                </div>
+                <div class="fact-item">
+                    <h4>3. Der Entzug ist endlich</h4>
+                    <p>Die körperliche Entzugsphase (das „Ziehen“ im Körper) dauert nur wenige Tage. Was bleibt, ist eine alte Gewohnheit – und die kannst du jederzeit ersetzen. Das Schlimmste liegt also hinter dir, nicht vor dir.</p>
+                </div>
+                <div class="fact-item">
+                    <h4>4. Lebe im Jetzt</h4>
+                    <p>Du musst nicht für immer aufhören. Du musst nur diese eine nächste Stunde, diesen einen nächsten Tag gewinnen. Stunde für Stunde, Tag für Tag – so entsteht dein neues Leben.</p>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                „Die Entscheidung, nicht zu rauchen, ist kein Verzicht – sie ist eine Rückeroberung. Du holst dir zurück, was dir die Zigarette gestohlen hat: Zeit, Geld, Atem, Würde.“
+                <span class="quote-author">- Frank Zimmermann</span>
+            </div>
+        </div>
+
+        <!-- Launch Preparation -->
+        <div class="card">
+            <div class="section-header">
+                <div class="icon-wrapper">&#128640;</div>
+                <h3>Dein Start-Raketen-Programm (dein Vorbereitungs-Countdown)</h3>
+            </div>
+            <p class="story-p">Bevor du Tag 1 beginnst, führe diese vier Schritte aus. Sie sind dein Sicherheitsnetz und sorgen dafür, dass du nicht ins Leere startest. Keiner dieser Schritte kostet dich mehr als ein paar Minuten – aber sie machen den Unterschied zwischen Wollen und Tun.</p>
+
+            <ol class="launch-steps">
+                <li>
+                    <h4>Setze deinen Zeitpunkt</h4>
+                    <p>Wähle heute bewusst den Moment, an dem deine letzte Zigarette geraucht wird. Sag dir selbst: „Danach ist Schluss – endgültig.“ Notiere diesen Moment in deinem Kalender oder auf einem Zettel an deinem Spiegel.</p>
+                </li>
+                <li>
+                    <h4>Schaffe dir Verbündete</h4>
+                    <p>Erzähle mindestens drei Menschen aus deinem Umfeld von deinem Plan. Verbündete geben dir Kraft, wenn dein eigener Wille wackelt. Du kannst sie auch heute um ihre Unterstützung bitten.</p>
+                </li>
+                <li>
+                    <h4>Mache reinen Tisch</h4>
+                    <p>Wirf alle Aschenbecher, Feuerzeuge, übrig gebliebene Zigaretten und alles, was an das Rauchen erinnert, in den Müll. Schaffe dir ein sichtbares Umfeld ohne Auslöser (ohne Erinnerungen an die alte Gewohnheit).</p>
+                </li>
+                <li>
+                    <h4>Aktiviere den Schalter</h4>
+                    <p>Klicke unten auf „SCHALTER UMLEGEN &amp; STARTEN“. Damit aktivierst du dein 21-Tage-Programm, deine Fortschritts-Anzeige und deine persönliche Auswertung. Ab hier zählt jeder Tag, den du gewinnst.</p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Personal Profile -->
+        <div class="card">
+            <div class="section-header">
+                <div class="icon-wrapper">&#128100;</div>
+                <h3>Dein persönliches Profil</h3>
+            </div>
+            <p class="story-p">Trage hier deine persönlichen Daten ein. Sie werden ausschließlich lokal in deinem Browser gespeichert (nicht an einen Server gesendet) und dienen zur Berechnung deiner Statistik. Du kannst sie jederzeit ändern oder löschen.</p>
+
+            <div class="input-grid">
+                <div>
+                    <label for="userName">Dein Name (Vorname)</label>
+                    <input type="text" id="userName" placeholder="z. B. Anna">
+                </div>
+                <div>
+                    <label for="userBirthday">Tag deines Starts (Datum)</label>
+                    <input type="date" id="userBirthday">
+                </div>
+                <div>
+                    <label for="userCigs">Zigaretten pro Tag (Stück)</label>
+                    <input type="number" id="userCigs" min="1" max="200" placeholder="z. B. 15">
+                </div>
+                <div>
+                    <label for="userPrice">Preis pro Schachtel (Euro)</label>
+                    <input type="number" id="userPrice" min="1" max="50" step="0.10" placeholder="z. B. 8.50">
+                </div>
+            </div>
+
+            <button class="btn-save" onclick="saveProfile()">
+                Profil speichern
+                <span>&#128190;</span>
+            </button>
+
+            <div class="metrics-grid" id="metricsGrid">
+                <div class="metric-tile">
+                    <div class="label">Bereits gesparte Zigaretten</div>
+                    <div class="value" id="savedCigsValue">0</div>
+                    <div class="unit">Stück</div>
+                </div>
+                <div class="metric-tile">
+                    <div class="label">Bereits gespartes Geld</div>
+                    <div class="value" id="savedMoneyValue">0,00 &euro;</div>
+                    <div class="unit">Euro</div>
+                </div>
+                <div class="metric-tile">
+                    <div class="label">Gewonnene Lebenszeit</div>
+                    <div class="value" id="daysGainedValue">0</div>
+                    <div class="unit">Tage</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Switch CTA -->
+        <div class="card cta-card">
+            <h3>SCHALTER UMLEGEN &amp; STARTEN</h3>
+            <p class="story-p">Mit einem Klick aktivierst du dein 21-Tage-Programm. Deine Fortschritts-Anzeige springt an und dein persönlicher Transformations-Plan öffnet sich.</p>
+            <button class="btn-switch" id="switchBtn" onclick="activateTransformation()">
+                <span id="btnText">Klick mich – und nichts ist mehr wie vorher</span>
+                <span id="btnIcon">&#9889;</span>
+            </button>
+            <div class="status-msg" id="statusMsg">System aktiviert – deine 21-Tage-Mission läuft.</div>
+        </div>
+
+        <!-- STICKY PROGRESS BAR -->
+        <div class="progress-sticky">
+            <div class="progress-title-row">
+                <span>&#128203; Deine 21-Tage-Missionen</span>
+                <span id="progressText">0 / 21 Tagen abgeschlossen</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC ACCORDION DAYS CONTAINER -->
+        <div id="days-container"></div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-quote">
+                „Du gibst nicht etwas auf – du gewinnst alles zurück.“
+            </div>
+            <div class="footer-copyright">
+                &copy; 2027 <span class="author">Frank Zimmermann</span> – Rauchfrei-Rebellion. Alle Rechte vorbehalten.
+            </div>
+            <div class="footer-legal">
+                Diese Seite dient ausschließlich der persönlichen Motivation und Information. Sie ersetzt keine ärztliche oder psychologische Beratung. Bei gesundheitlichen Fragen oder einer ernsten Suchterkrankung wende dich bitte an deinen Arzt, deine Ärztin oder an eine offizielle Beratungsstelle. Alle Inhalte sind urheberrechtlich geschützt und wurden für deine persönliche Nutzung im Rahmen der Rauchfrei-Rebellion 2027 erstellt.
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:in60tagenrauchfrei@gmail.com">&#128231; E-Mail: in60tagenrauchfrei@gmail.com</a>
+                <span class="footer-separator">|</span>
+                <a href="https://chat.whatsapp.com/Kisnv5LGuvj4WrKadqo98B?mode=gi_t" target="_blank" rel="noopener">&#128172; WhatsApp-Gruppe beitreten</a>
+                <span class="footer-separator">|</span>
+                <a href="#days-container">&#128640; Zu den 21 Tagen</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ============ REBELLION FINAL SCREEN ============ -->
+    <div class="rebellion-screen" id="rebellionScreen">
+        <canvas class="rebellion-canvas" id="fireworksCanvas"></canvas>
+        <div class="rebellion-content">
+            <div class="rebellion-title">DU HAST ES GESCHAFFT!</div>
+            <div class="rebellion-sub">Deine 21-Tage-Rebellion ist komplett</div>
+
+            <div class="rebellion-name" id="rebellionName">Rebell:in</div>
+            <div class="rebellion-line" id="rebellionLine">Du bist jetzt offiziell rauchfrei – und dein Körper feiert mit dir.</div>
+
+            <div class="rebellion-stats">
+                <div class="rebellion-stat">
+                    <div class="label">Gesparte Zigaretten</div>
+                    <div class="value" id="finalCigs">0</div>
+                    <div class="unit">Stück</div>
+                </div>
+                <div class="rebellion-stat">
+                    <div class="label">Gespartes Geld</div>
+                    <div class="value" id="finalMoney">0,00 &euro;</div>
+                    <div class="unit">Euro</div>
+                </div>
+                <div class="rebellion-stat">
+                    <div class="label">Gewonnene Lebenszeit</div>
+                    <div class="value" id="finalLifeDays">0</div>
+                    <div class="unit">Tage</div>
+                </div>
+            </div>
+
+            <div class="rebellion-quote">
+                „Du hast 21 Tage lang jeden einzelnen Moment gewählt. Du hast gegen eine jahrelange Gewohnheit gewonnen – und gegen Millionen von Nervenzellen, die dir das Gegenteil eingeredet haben. Du bist nicht mehr die Person, die diese Seite heute Morgen aufgerufen hat. Du bist die Person, die morgen aufwacht und einfach atmet – frei, klar, ganz.“
+                <span class="author">- Frank Zimmermann</span>
+            </div>
+
+            <div>
+                <button class="btn-rebellion" id="btnRestart" onclick="restartTransformation()">
+                    &#128260; Neu starten
+                </button>
+                <button class="btn-rebellion secondary" onclick="closeRebellionScreen()">
+                    Seite schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const daysData = [
+            {
+                day: 1,
+                title: "Schockiere dein Gehirn",
+                aha: "Dein Gehirn hat den Griff zur Zigarette über Jahre hinweg als einen automatischen Schutzreflex abgespeichert. Doch jeder einzelne Zug flutet deinen Körper mit Milliarden freier Radikale, die massiven oxidativen Stress auslösen. Diese reaktionsfreudigen Sauerstoffmoleküle schädigen ununterbrochen deine Zellen, beschleunigen gefährliche Arteriosklerose und versetzen dein gesamtes Gefäßsystem in eine schwere Dauerentzündung. Genau diesen zerstörerischen Kreislauf durchbrichst du jetzt, indem du heute ein glasklares und unmissverständliches mentales Stopp-Signal setzt. Dein Körper verdient es, endlich geschützt zu werden, anstatt durch alte, konditionierte Verhaltensmuster kontinuierlich geschwächt zu werden. Nutze diese Erkenntnis als deinen persönlichen Wendepunkt, um die Kontrolle über deine Biologie und deine täglichen Handlungen kraftvoll zurückzuerlangen.",
+                neuro: "Diese bewährte Methode der Verhaltensunterbrechung nutzt die enorme Neuroplastizität deines Gehirns, um alte, schädliche neuronale Pfade Schritt für Schritt nachhaltig umzuschalten. Jedes Mal, wenn du diesen kleinen Reiz anwendest und das Stopp-Signal gibst, schwächst du die alte Suchtschleife ab und stärkst gleichzeitig deine mentale Selbstwirksamkeit. Du übernimmst aktiv das Ruder zurück, statt dich von chemischen Reizen oder alten Gewohnheiten fremdsteuern zu lassen. Halte diese einfache Routine in den kommenden drei Wochen konsequent durch und beobachte, wie der Griff zur Zigarette seine automatische Macht über dich verliert. Du bist stärker als dein Impuls, und jeder einzelne dieser bewussten Momente bringt dich in ein gesünderes Leben.",
+                action: "Trage ab sofort für die nächsten 21 Tage konsequent ein schlichtes, elastisches Gummiband gut sichtbar an deinem Handgelenk. Jedes Mal, wenn der unbändige Impuls zum Rauchen in dir aufsteigt, schnippst du das Band ganz bewusst und leicht gegen deine Haut. Dieser gezielte, kleine physische Reiz holt dein Bewusstsein sofort aus dem Autopiloten zurück in die reale Gegenwart. Gleichzeitig sprichst du in diesem exakten Moment laut oder fest innerlich die drei klaren Worte: „Nein. Neu. Jetzt.“ Damit unterbrichst du den tief verankerten neurologischen Automatenkreislauf unmittelbar an seiner Wurzel und schaffst einen geschützten Raum der freien Entscheidung."
+            },
+            {
+                day: 2,
+                title: "Gewohnheit vs. Sucht",
+                aha: "Glaubst du wirklich, dass die Zigarette dir gerade echte Entspannung bringt? Lass dich von deinem Gehirn nicht länger täuschen. Rauchen spendet nämlich überhaupt keine Erholung, sondern beseitigt in Wahrheit nur exakt den Nikotinmangel, den die vorherige Zigarette selbst erzeugt hat. Sobald der Pegel im Blut sinkt, schlägt das System Alarm. Genau diesen perfiden Kreislauf durchschauen wir heute gemeinsam, damit du die Illusion endlich ablegst.",
+                neuro: "Wissenschaftlich gesehen erreicht Nikotin innerhalb von nur sieben Sekunden dein Gehirn und bindet dort sofort an die nikotinergen Acetylcholin-Rezeptoren. Das greift massiv in dein vegetatives Nervensystem ein. Die Sucht gaukelt dir ein positives Gefühl von Ruhe vor, stellt biologisch gesehen aber lediglich für wenige Minuten den ganz normalen Zustand eines Nichtrauchers wieder her. Du bezahlst also einen verdammt hohen Preis für ein Gefühl, das andere Menschen dauerhaft gratis haben.",
+                action: "Zeit für deine neue Entdeckung, um dieses biologische Spiel sofort zu stoppen. Ersetze die gewohnte Handbewegung ab heute konsequent durch eine feste Ersatzhandlung: Trinke bei jedem Rauchverlangen sofort ein großes Glas kaltes, klares Wasser, kaue ein zuckerfreies Kaugummi oder massiere deine Fingerkuppen für dreißig Sekunden intensiv. Dein neues Tagesziel lautet zudem mindestens zwei Liter Wasser. Nutze diese klaren physischen Reize, um dein Gehirn auszutricksen und die alte Gewohnheit endgültig zu überschreiben.",
+                quiz: {
+                    question: "Wie schnell gelangt Nikotin ins Gehirn?",
+                    options: ["A. 7 Sekunden", "B. 30 Sekunden", "C. 1 Minute", "D. 5 Minuten"],
+                    correct: 0
+                }
+            },
+            {
+                day: 3,
+                title: "Werde Detektiv deiner Muster",
+                aha: "Der vermeintliche Alltagsstress, den du so deutlich spürst, kommt in Wahrheit gar nicht von deinem Job oder deinem Leben. Er wird überwiegend durch den ständigen Entzug der letzten Zigarette ausgelöst. Jedes Mal, wenn der Nikotinspiegel sinkt, schlägt dein Körper Alarm und erzeugt puren Stress, den du dann fälschlicherweise der Außenwelt zuschreibst. Genau diese fatale Verwechslung müssen wir heute auflösen, damit du erkennst, dass nicht das Leben stressig ist, sondern die Sucht.",
+                neuro: "Aus neurobiologischer Sicht ist die Abhängigkeit eine erlernte Gain-of-Function-Erkrankung des Gehirns. Das Dopaminsignal verknüpft dabei den genauen Kontext – also dein Umfeld, die Uhrzeit oder bestimmte Emotionen – fest mit dem Suchtmittel. Wenn du diese versteckten Muster und Trigger jedoch glasklar erkennst, verliert der äußere Reiz schlagartig seine unbewusste Macht über dich und deine Gefühle.",
+                action: "Hier setzt deine heutige Entdeckung an, um das System zu durchschauen. Analysiere deinen gesamten Tag ab sofort extrem präzise und schreibe dir deine persönlichen Top-Fünf-Triggersituationen auf. Ob es der morgendliche Kaffee, die Autofahrt, die Pause mit den Kollegen, der Jobstress oder der Feierabend ist: Bringe Licht ins Dunkel. Wenn du deine Auslöser schwarz auf weiß vor dir siehst, sind sie nicht mehr unberechenbar, sondern bereit für deine gezielte Veränderung."
+            },
+            {
+                day: 4,
+                title: "Wertschätzung & Zellgesundheit",
+                aha: "Dein Körper ist zu keinem Zeitpunkt ein Aschenbecher gewesen, sondern er ist und bleibt dein einzig wertvolles Werkzeug für dieses Leben. Höre auf, ihn weiter zu sabotieren, und begegne ihm stattdessen genau heute mit maximaler Wertschätzung und echtem Respekt. Du hast nur diesen einen Körper, der dich jeden Tag trägt, atmet und am Leben hält. Jede Entscheidung, diesen Kreislauf zu beenden, ist ein Akt tiefster Fürsorge für dich selbst, der deine innere Stärke und deinen unerschütterlichen Selbstwert direkt widerspiegelt.",
+                neuro: "Statistisch gesehen sterben Raucher im Durchschnitt zehn Jahre früher als Menschen, die rauchfrei leben. Neunzig Prozent aller tödlichen Lungenerkrankungen sowie neun von zehn Lungenkarzinomen stehen in einem direkten, unumstößlichen Zusammenhang mit dem blauen Dunst. Doch die gute Nachricht der Neurobiologie und Medizin lautet: Sobald der Rauch endgültig stoppt, setzt ein faszinierender Selbstheilungsprozess ein und dein Gewebe beginnt sofort mit seiner tiefgreifenden Regeneration. Du kannst das Ruder also jederzeit herumreißen.",
+                action: "Zeit für deine heutige Entdeckung, um diese körperliche Wende direkt im Alltag sichtbar und spürbar zu machen. Befreie dich und deine Umgebung jetzt bewusst von jedem Rest des alten Lasters: Putze deine Zähne gründlich, wasche den festgesetzten Rauchgeruch aus deiner Kleidung, lüfte all deine Räume einmal komplett und gründlich durch und trinke reichlich frisches Wasser. Schaffe dir ein sauberes, klares Umfeld, das deinen neuen, rauchfreien Lebensstil aktiv unterstützt und dir bei jedem tiefen Atemzug zeigt, wie gut Freiheit riecht."
+            },
+            {
+                day: 5,
+                title: "Die Biochemie der Ruhe",
+                aha: "Die tiefe Atmung und ganz gezielte biologische Reize beruhigen dein aufgewühltes Nervensystem blitzschnell – und das komplett ohne schädliche Giftstoffe. Wir neigen oft dazu zu glauben, dass uns die Zigarette in stressigen Momenten runterbringt, aber in Wahrheit ist es ein ganz anderer Mechanismus. Du wirst gleich erfahren, wie du genau diesen biologischen Effekt völlig eigenständig und ohne jeden Rauch erzielen kannst, um absolute innere Ruhe und mentale Kontrolle zu behalten.",
+                neuro: "Aus neurobiologischer Sicht entsteht die gefühlte Beruhigung beim Rauchen nämlich fast ausschließlich durch das unbewusste, tiefe Ein- und Ausatmen. Die berühmte 4-7-8-Atemtechnik aktiviert gezielt den Parasympathikus in deinem Körper und senkt sofort nachweisbar deine Herzfrequenz. Wenn du stattdessen bewusste Kältereize setzt, schüttet dein Gehirn körpereigenes Noradrenalin aus – exakt denselben Botenstoff, den auch Nikotin freisetzt, nur eben vollkommen gesund und natürlich.",
+                action: "Hier ist deine heutige Entdeckung, um dieses Wissen sofort in die Tat umzusetzen: Führe bei jedem aufkommenden Rauchverlangen exakt zehn Durchgänge der 4-7-8-Atmung aus – atme vier Sekunden lang tief durch die Nase ein, halte die Luft für sieben Sekunden an und atme dann acht Sekunden lang langsam durch den Mund aus.",
+                kickstart: "Beende dein Duschen heute mit 30 Sekunden eiskaltem Wasser! Damit gibst du deinem Nervensystem den perfekten Kick für absolute Klarheit."
+            },
+            {
+                day: 6,
+                title: "Der finanzielle Hebel",
+                aha: "Rauchen verbrennt nicht nur täglich deine wertvolle Gesundheit, sondern es kostet dich Stück für Stück auch deine finanzielle Unabhängigkeit und deine echte Freiheit. Viele Raucher unterschätzen völlig, welche gewaltige Summe im Laufe der Jahre buchstäblich in Rauch aufgeht. Wir blicken heute einmal ganz nüchtern und glasklar auf die nackten Zahlen, denn wenn du verstehst, wie viel Kapital hier unbemerkt versickert, wird dieses Geld zu deinem mächtigsten Motivationsfaktor für den sofortigen Ausstieg.",
+                neuro: "Aus neuroökonomischer Sicht unterschätzen wir die Dimension von Gewohnheitsausgaben massiv, weil das Gehirn in kleinen Schritten rechnet statt in Gesamtsummen. Bei einem Preis von zehn Euro pro Schachtel gibst du bei einem täglichen Konsum monatlich exakt 300 Euro und im ganzen Jahr satte 3.650 Euro aus. Rechnen wir das auf zehn Jahre hoch, reden wir über eine Summe von 36.500 Euro reinem Bargeld – und wenn du dieses Geld klug anlegen würdest, wäre es durch den Zinseszinseffekt sogar noch ein Vielfaches mehr.",
+                action: "Hier setzt deine heutige Entdeckung an, um diese Geldverbrennung sofort zu stoppen und in echten Vermögensaufbau umzuwandeln. Berechne als Erstes einmal ehrlich deine eigenen Ausgaben allein für die letzten fünf Jahre. Richte dir ab heute ein separates Sparglas oder ein digitales Unterkonto ein und überweise dort jeden einzelnen Tag genau die zehn Euro hinein, die du sonst verqualmt hättest.",
+                quiz: {
+                    question: "Wie viel Geld sparst du in 21 Tagen (10 €/Tag)?",
+                    options: ["A. 84 €", "B. 140 €", "C. 210 €", "D. 250 €"],
+                    correct: 2
+                }
+            },
+            {
+                day: 7,
+                title: "Wochen-Reflexion & Identität",
+                aha: "Du bist ab sofort kein klassischer „Raucher, der verzichtet und leidet“, sondern du wächst von Tag zu Tag mehr zu einem absolut freien, unerschütterlich kraftvollen Nichtraucher heran. Diese gedankliche Neuausrichtung ist der absolute Schlüssel für deinen langfristigen Erfolg. Wenn du aufhörst, dich als Opfer des Entzugs zu sehen, sondern stattdessen die neue Rolle annimmst, verändert sich deine gesamte innere Haltung. Dein Gehirn beginnt sofort damit, alte Zweifel über Bord zu werfen und sich voll und ganz auf deine neue, gesunde Realität einzustellen.",
+                neuro: "Aus neurobiologischer Sicht erfordert jede nachhaltige Verhaltensänderung zwingend einen echten Identitätswechsel. Wenn du dein inneres Selbstbild transformierst, passen sich deine unbewussten neuronalen Verhaltensmuster im Gehirn ganz automatisch an diese neue Identität an. Du musst dich dann gar nicht mehr krampfhaft zusammenreißen, weil dein Handeln organisch zu dem passt, wer du im tiefsten Inneren nun bist: ein Mensch, der schlichtweg nicht mehr raucht. Dein Gehirn verdrahtet sich neu und unterstützt dich aktiv dabei, diese neue Wahrheit zu leben.",
+                action: "Hier ist deine heutige Entdeckung, um diese neue Identität tief in deinem Unterbewusstsein zu verankern: Stelle dich heute bewusst vor den Spiegel, blicke dir fest und selbstbewusst in die Augen und sprich laut und klar die folgenden Worte aus: „Ich werde stetig stärker. Ich habe die volle Kontrolle. Ich bin Nichtraucher.“ Nutze diese kraftvolle Affirmation, um jeden Zweifel wegzublasen. Nimm dir im Anschluss einen Zettel und reflektiere deine erste erfolgreiche rauchfreie Woche schriftlich – halte fest, wie stolz du bist, welche Hürden du gemeistert hast und wie sich deine neue Freiheit in deinem Körper anfühlt."
+            },
+            {
+                day: 8,
+                title: "Hinterfrage die Toxine",
+                aha: "Über viertausendachthundert verschiedene Chemikalien stecken in einer einzigen Zigarette – es wird Zeit, dass du wieder die unumschränkte Hoheit über deine eigenen Zellen übernimmst! Jedes Mal, wenn du früher an einem Glimmstängel gezogen hast, hast du dir nicht einfach nur Tabak, sondern einen hochkomplexen Cocktail aus industriellen Giften zugeführt. Wir schauen heute ganz genau hin, was dort eigentlich in deinen Körper transportiert wurde, damit der Ekel vor dieser Chemie deine innere Entschlossenheit für immer besiegelt.",
+                neuro: "Aus neurobiologischer und toxikologischer Sicht ist jede Zigarette ein perfekt konstruiertes Produkt zur Manipulation. Zusatzstoffe wie Ammoniak werden gezielt eingesetzt, um den pH-Wert des Rauchs so zu verändern, dass das Nikotin noch rasanter ins Gehirn schießt. Menthol betäubt gleichzeitig deine Atemwege, damit der giftige Rauch unbemerkt noch tiefer in die Lunge inhaliert werden kann. Es handelt sich hierbei um ein absolut perfides Design der Tabakindustrie, das einzig und allein dazu dient, deine körperliche und psychische Abhängigkeit maximal zu maximieren.",
+                action: "Hier ist deine heutige Entdeckung, um dich endgültig von diesem Chemie-Schwindel zu befreien: Lies dir ganz bewusst die reale Zutatenliste und die enthaltenen Substanzen von Tabakprodukten durch – konfrontiere dich mit Begriffen wie Arsen, Blei, Formaldehyd und Benzol. Mache dir in diesem Moment schwarz auf weiß klar, dass du diesen giftigen Chemikalienmix niemals wieder in deinen heiligen Körper lassen wirst. Du bist kein Müllschlucker für Industrieabfälle, sondern ein Mensch, der sich für ein reines, klares und absolut giftfreies Leben entscheidet."
+            },
+            {
+                day: 9,
+                title: "Das 5-Minuten-Zeitfenster",
+                aha: "Jedes einzelne Craving ist im Grunde nichts weiter als eine temporäre Welle – nach nur wenigen Minuten flacht der körperliche und mentale Druck von ganz alleine wieder ab. Die Versuchung flüstert dir im Moment des Verlangens vielleicht zu, dass das Gefühl ewig anhalten wird, aber das ist schlichtweg eine Illusion deines Gehirns. Du musst diesem Sog nicht nachgeben, sondern darfst darauf vertrauen, dass sich der Sturm von ganz alleine legt, wenn du ihm einfach standhaft und gelassen begegnest.",
+                neuro: "Aus neurobiologischer Sicht erreicht ein akuter Suchtdruck sein absolutes neurobiologisches Maximum nach etwa drei bis fünf Minuten und klingt danach unweigerlich und messbar ab. Dein Gehirn schüttet in dieser Phase zwar kurzzeitig intensiv Signale aus, doch wenn du diesen überschaubaren Zeitraum bewusst überbrückst, ist die biochemische Welle endgültig gebrochen. Du lernst dadurch auf zellulärer Ebene, dass du jeder vermeintlichen Krise nicht hilflos ausgeliefert bist, sondern den Wellenreiter spielen kannst.",
+                action: "Hier ist deine heutige Entdeckung, um diesen Mechanismus sofort zu deinem Werkzeug zu machen: Stelle bei jedem aufkommenden Rauchverlangen sofort die Stoppuhr auf deinem Smartphone auf genau fünf Minuten ein. Beobachte das aufkommende Gefühl in deinem Körper völlig gelassen – wie ein neutraler Forscher, der ein Phänomen betrachtet – und spüre ganz bewusst mit, wie der Druck nach Ablauf der Zeit von Minute zu Minute spürbar nachlässt.",
+                quiz: {
+                    question: "Wie lange dauert ein Craving im Maximum?",
+                    options: ["A. 1–2 Minuten", "B. 3–5 Minuten", "C. 20–30 Minuten", "D. 1 Stunde"],
+                    correct: 1
+                }
+            },
+            {
+                day: 10,
+                title: "Neuroplastizität & Mentales Training",
+                aha: "Deine eigenen Gedanken formen buchstäblich dein Gehirn – visualisiere dich deshalb jetzt und hier als absolut freien, unerschütterlich starken Nichtraucher. Was du dir im Inneren erschaffst, wird im Außen deine neue Realität. Wir unterschätzen oft, wie mächtig unsere Vorstellungskraft ist, wenn es darum geht, alte mentale Mauern einzureißen und Platz für etwas völlig Neues zu schaffen. Nutze diese schöpferische Kraft heute bewusst, um dein Gehirn auf Erfolg, Leichtigkeit und pure Freiheit zu programmieren.",
+                neuro: "Aus neurobiologischer Sicht unterscheidet dein Gehirn in der neuronalen Aktivierung nämlich kaum zwischen einer real erlebten Situation und einer intensiv vorgestellten Erfahrung. Wenn du dir deinen Erfolg bildhaft ausmalst, feurig und lebendig, feuerst du exakt dieselben Synapsen an, als würdest du es bereits leben. Lebhafte mentale Bilder stärken dadurch messbar die neuen Synapsenverbindungen für deine rauchfreie Zukunft und machen es dir von Tag zu Tag leichter, den alten Pfaden den Rücken zu kehren.",
+                action: "Hier ist deine heutige Entdeckung, um diese mentale Superkraft direkt zu aktivieren: Nimm dir einen Moment Zeit, schließe für fünf Minuten die Augen und male dir dein rauchfreies Leben in den hellsten und lebendigsten Details aus. Spüre ganz genau, wie tief und frei du plötzlich atmest, wie frisch du riechst und wie eine schier unendliche Welle neuer Energie durch deinen gesamten Körper fließt. Genieße dieses innere Bild in vollen Zügen und lass es zu deiner emotionalen Wahrheit werden."
+            },
+            {
+                day: 11,
+                title: "Die Notfall-Strategie",
+                aha: "Wahre innere Stärke zeigt sich niemals in den einfachen Momenten, sondern genau dann, wenn es herausfordernd wird – deine persönliche Notfallkarte gibt dir in solchen Situationen sofort die Kontrolle zurück. Wenn der Druck steigt, neigen wir dazu, in alte, automatische Muster zu verfallen, weil unser logisches Denken kurzzeitig blockiert wird. Genau dafür brauchst du einen festen Anker, der dich sofort abfängt, dich handlungsfähig macht und dich sicher durch jede brenzlige Situation hindurchführt.",
+                neuro: "Aus neurobiologischer Sicht schaltet unser Gehirn unter starkem Stress oder akutem Verlangen augenblicklich auf primitive, automatisierte Reflexe um, während der präfrontale Kortex in den Hintergrund tritt. Das etablierte Muster der bewährten Vier-A-Methode fungiert hierbei als effektiver Notfall-Bremsschalter: Es verhindert wirksam, dass das primitive Suchtzentrum komplett das Ruder übernimmt, und gibt deinem Verstand die Steuerungsfähigkeit zurück. Du durchbrichst den Tunnelblick und schaffst einen klaren Moment der bewussten Entscheidung.",
+                action: "Hier ist deine heutige Entdeckung, um dieses mächtige Werkzeug sofort griffbereit zu haben: Schreibe dir eine kompakte Notfallkarte für deine Brieftasche oder speichere sie als Hintergrundbild auf dein Smartphone mit folgenden Schritten:<br>1. AUFSCHIEBEN: Zehn Sekunden tief durchatmen, bevor du reagierst.<br>2. AUSWEICHEN: Vorausschauend alte Muster und Gewohnheiten durchbrechen.<br>3. ABHAUEN: Die akute Triggersituation physisch für einen Moment verlassen.<br>4. ABLENKEN: Sofort kaltes Wasser trinken, Zähne putzen oder dich körperlich bewegen."
+            },
+            {
+                day: 12,
+                title: "Kontext & Umfeld",
+                aha: "Verändere deinen unmittelbaren Kontext, und die Sucht verliert schlagartig ihre gewohnte und sichere Umgebung! Wir unterschätzen oft, wie stark unser physisches Umfeld unser Verhalten steuert, ohne dass wir es bewusst merken. Wenn alles noch genau so aussieht wie zu deiner Raucherzeit, erinnert dein Gehirn jede einzelne Ecke an den alten Rhythmus. Durch einen bewussten Tapetenwechsel und das Kappen äußerer Reize entziehst du der Gewohnheit den Nährboden und machst den Weg für deinen dauerhaften Erfolg frei.",
+                neuro: "Aus neurobiologischer Sicht belegen zahlreiche Untersuchungen zum Suchtverhalten etwas Faszinierendes: Sobald der gewohnte Kontext und das räumliche Umfeld radikal verändert werden, sinkt das neurologische Suchtverlangen drastisch ab, weil die typischen visuellen und räumlichen Auslöser schlichtweg fehlen. Dein Gehirn schüttet daraufhin keine automatischen Dopamin-Antizipationssignale mehr aus, wenn der Reiz ausbleibt. Du nimmst dem Autopiloten damit die Landebahn und schaffst einen geschützten Raum für neue Verhaltensweisen.",
+                action: "Hier ist deine heutige Entdeckung, um diesen Effekt sofort zu nutzen: Mache reinen Tisch in deinem gesamten Umfeld. Entferne restlos alle Aschenbecher, Feuerzeuge, Restbestände und verstaute Rauchutensilien aus deiner Sichtweite und wirf sie weg. Erzähle heute außerdem ganz bewusst mindestens drei wichtigen Menschen in deinem Leben von deinem festen Entschluss, um dir maximale soziale Verbindlichkeit und wertvolle Unterstützung zu schaffen.",
+                quiz: {
+                    question: "Wie nennt man das Verlangen nach Nikotin?",
+                    options: ["A. Craving / Suchtdruck", "B. Flash", "C. Entzugssyndrom", "D. Hyperventilation"],
+                    correct: 0
+                }
+            },
+            {
+                day: 13,
+                title: "Progressive Muskelrelaxation (PMR)",
+                aha: "Körperliche Entspannung baut psychischen Stress sofort und effektiv ab – nutze deshalb ganz gezielt die enorme Kraft der progressiven Muskelentspannung für dich. Wir glauben oft, dass wir erst im Kopf zur Ruhe kommen müssen, bevor sich der Körper entspannt. Doch der Weg funktioniert in beide Richtungen: Wenn du die physische Anspannung gezielt löst, folgt das mentale Wohlbefinden ganz automatisch. Du nimmst deinem Körper damit das biologische Signal von Alarmbereitschaft und schenkst dir selbst tiefe, wohlverdiente Erholung.",
+                neuro: "Aus neurobiologischer Sicht greifen körperliche und mentale Anspannung direkt und unzertrennlich ineinander. Über das bewährte Prinzip der progressiven Muskelentspannung nach Jacobson, kurz PMR genannt, wird die massive Ausschüttung von Stresshormonen wie Cortisol im Körper sofort gestoppt. Stattdessen schaltet dein Nervensystem auf Erholung um, die Herzfrequenz sinkt, und dein Gehirn erhält die Rückmeldung, dass akut keine Gefahr mehr besteht. Du durchbrichst die physiologische Stressspirale auf direktestem Wege.",
+                action: "Hier ist deine heutige Entdeckung, um diesen tiefen Entspannungseffekt sofort in deinen Tag zu integrieren: Nimm dir zehn ungestörte Minuten Zeit für die PMR-Übung. Setze oder lege dich bequem hin, spanne nacheinander deine Hände, dein Gesicht, deine Schultern, deinen Bauch und deine Beine für jeweils fünf Sekunden lang extrem fest an und lasse sie danach schlagartig für zehn Sekunden komplett locker. Spüre in den Moment der Entspannung hinein und genieße, wie der Stress spürbar aus deinen Muskeln weicht."
+            },
+            {
+                day: 14,
+                title: "Halbzeit & Die Rückfall-Falle",
+                aha: "Du hast jetzt bereits zwei volle Wochen geschafft! Halte dich deshalb unerschütterlich an diese eiserne Regel: Es gibt biologisch gesehen niemals im Leben „nur eine einzige Zigarette“. Diese scheinbar harmlose Ausnahme ist die größte und heimtückischste Falle auf deinem gesamten Weg in die Freiheit. Sobald du glaubst, dir nach vierzehn Tagen Enthaltsamkeit mal eben eine gönnen zu können, fällst du genau in das alte, unbarmherzige Raster zurück.",
+                neuro: "Aus neurobiologischer Sicht reicht ein einziger Zug völlig aus, um das ruhende Belohnungssystem deines Gehirns sofort wieder mit Nikotin zu fluten und die schlafenden Rezeptoren schlagartig zu reaktivieren. Die biochemische Kettenreaktion der alten Abhängigkeit würde in diesem exakten Moment sofort von vorne beginnen und all deine harte Arbeit zunichtemachen. Dein Gehirn erinnert sich perfekt an jeden einzelnen Pfad, weshalb du diesen gefährlichen Funken niemals wieder an die alte Glut heranlassen darfst.",
+                action: "Hier ist deine heutige Entdeckung, um diesen Meilenstein fest in deinem Bewusstsein zu verankern: Nimm dir einen Stift und reflektiere deine schwersten Momente der ersten zwei Wochen ganz ehrlich auf einem Blatt Papier. Feiere diesen großartigen Halbzeit-Erfolg ausgiebig, bleibe gleichzeitig hochwachsam und festige deinen eisernen Grundsatz für den restlichen Weg: Kein einziger Zug mehr, egal was passiert!"
+            },
+            {
+                day: 15,
+                title: "Automatismen entkoppeln",
+                aha: "Durchbrich deine festgefahrenen alten Routinen, und dein Gehirn bildet im absoluten Eiltempo völlig neue, stabile und rauchfreie Bahnen! Unser Gehirn liebt Gewohnheiten, weil sie Energie sparen, doch genau darin liegt die Falle des Autopiloten. Wenn du gewohnte Abläufe gezielt aufbrichst, zwingst du dein Denken aus den eingefahrenen Gleisen heraus. Nutze diesen inneren Gestaltungsspielraum heute ganz bewusst, um deinem Verstand zu zeigen, dass du Herr im eigenen Haus bist und dein Leben völlig frei neu definieren kannst.",
+                neuro: "Aus neurobiologischer und medizinischer Sicht reagiert dein Körper unglaublich schnell auf positive Veränderungen. Bereits zwanzig Minuten nach der letzten Zigarette sinken Puls und Blutdruck messbar auf gesunde Normalwerte zurück. Nach nur zwölf Stunden normalisiert sich zudem der Kohlenmonoxid-Spiegel im Blut vollkommen, sodass deine Zellen wieder optimal mit Sauerstoff versorgt werden. Jeder einzelne Tag ohne Rauch ist ein biologisches Sofortprogramm für mehr Vitalität und die Regeneration deiner körperlichen Leistungsfähigkeit.",
+                action: "Hier ist deine heutige Entdeckung, um diesen Effekt direkt in die Praxis umzusetzen: Verändere ganz gezielt ein gewohntes Morgenritual, das dich früher direkt zur Zigarette geführt hat. Trinke deinen Kaffee heute an einem völlig anderen Platz in der Wohnung oder im Garten, oder trinke als allererstes ein großes Glas kaltes Wasser und absolviere zehn bewusste Atemzüge, bevor du deine restliche Morgenroutine startest. Durch diese kleine, aber feine Unterbrechung des vertrauten Kontextes nimmst du dem alten Impuls sofort den Nährboden und stärkst deine neuen Bahnen im Gehirn.",
+                quiz: {
+                    question: "Was passiert bereits nach 20 Minuten?",
+                    options: ["A. Lunge vollständig gereinigt", "B. Puls & Blutdruck normalisieren sich", "C. Geruchssinn verfünffacht sich", "D. Krebsrisiko sinkt auf Null"],
+                    correct: 1
+                }
+            },
+            {
+                day: 16,
+                title: "Kognitive Unterbrechung (CBT)",
+                aha: "Unterbrich den automatischen Gedanken blitzschnell mit einem glasklaren, entschlossenen mentalen Schnitt! Unser Kopf neigt dazu, alte Gewohnheiten wie im Film-Autopiloten abzuspulen, noch bevor wir überhaupt realisieren, was da gerade passiert. Genau diesen unbewussten Reflex musst du abfangen, bevor er die Kontrolle übernimmt. Du bist deinen Gedanken nämlich keineswegs hilflos ausgeliefert, sondern besitzt die unbändige Kraft, diesen unsichtbaren Kreislauf eigenhändig und mit sofortiger Wirkung anzuhalten.",
+                neuro: "Aus neurobiologischer Sicht bereitet unser Unbewusstes Entscheidungen oft schon einige Sekunden vor, bevor wir sie überhaupt bewusst wahrnehmen. Ein klares, lautes Stopp-Signal fungiert hierbei als effektives Bremsmanöver der kognitiven Verhaltenstherapie: Es durchbricht die unbewusste Impulsschleife direkt im Gehirn, bevor sich das Verlangen körperlich manifestieren kann. Du ziehst sozusagen die Notbremse im Kopf, holst dein Bewusstsein in die Gegenwart zurück und nimmst dem alten Verhaltensmuster augenblicklich den Wind aus den Segeln.",
+                action: "Hier ist deine heutige Entdeckung, um diese Technik perfekt anzuwenden: Sobald auch nur der kleinste Gedanke an eine Zigarette in deinem Kopf auftaucht, rufe sofort innerlich oder laut „STOPP!“ und wechsle im selben Moment demonstrativ deine Körperposition oder die aktuelle Tätigkeit. Steh auf, setz dich woanders hin oder schüttle deine Arme aus. Durch diesen physischen und mentalen Richtungswechsel schickst du ein unmissverständliches Signal an dein Nervensystem: Das Spiel ist vorbei, hier bestimmt ab sofort der Wille!"
+            },
+            {
+                day: 17,
+                title: "Die 4 Phasen der Veränderung",
+                aha: "Echte Veränderung braucht nun mal ihre Zeit – und du befindest dich jetzt im entscheidenden Moment kurz vor der neuen, automatischen Gewohnheit! Am Anfang hat sich jeder Tag vielleicht noch nach einem harten Kampf angefühlt, bei dem du jeden Schritt bewusst kontrollieren musstest. Doch diese anstrengende Phase weicht langsam, und du wirst spüren, wie die Leichtigkeit Einzug hält. Dein Gehirn hat in den letzten Wochen unermüdlich gearbeitet, um den alten Pfaden den Rücken zu kehren und dir den Weg in ein völlig unbeschwertes Leben zu ebnen.",
+                neuro: "Aus neurobiologischer Sicht durchläuft jede echte Verhaltensänderung vier klassische Stufen: Sie beginnt bei der unbewussten Inkompetenz, führt über die bewusste Inkompetenz und die bewusste Kompetenz schließlich zur unbewussten Kompetenz. Nach etwa 21 Tagen konsequenter täglicher Wiederholung schleift sich das neue Verhalten tief in deine neuronalen Strukturen ein und wird zur automatischen Normalität. Du musst nicht mehr ständig überlegen oder kämpfen, weil das Nichtrauchen nun langsam zu deinem ganz natürlichen, unerschütterlichen Zustand wird.",
+                action: "Hier ist deine heutige Entdeckung, um diesen Meilenstein voll und ganz zu verinnerlichen: Erkenne ganz bewusst an, dass dir das rauchfreie Leben von Tag zu Tag spürbar leichter fällt. Nimm dir heute einen Moment Zeit, um deinen stetigen Fortschritt aktiv zu feiern – vom anstrengenden Anfang der bewussten Kompetenz bis hin zur neuen, tief verankerten Nichtraucher-Normalität. Du hast dir diesen Erfolg hart erarbeitet, und das Fundament für deine dauerhafte Freiheit steht jetzt felsenfest."
+            },
+            {
+                day: 18,
+                title: "Physische Entkopplung",
+                aha: "Leite die gewohnte Handbewegung sofort um, noch bevor der alte Automatismus wieder die volle Kontrolle über dich übernimmt. Du kennst diesen unbewussten Griff, der jahrelang wie ferngesteuert abgelaufen ist, ohne dass du auch nur eine Sekunde darüber nachgedacht hast. Genau an diesem entscheidenden Punkt setzen wir jetzt an. Du bist dem Drang keineswegs hilflos ausgeliefert, sondern besitzt in jeder Sekunde die machtvolle Fähigkeit, das Skript dieses Ablaufs eigenhändig umzuschreiben und die Regie zurückzuholen.",
+                neuro: "Aus neurobiologischer Sicht nutzt die bewährte Habit-Reversal-Methode, auch Entkopplung genannt, eine winzige, aber extrem wertvolle Zeitverzögerung in der gesamten Handlungskette aus. Wenn die gewohnte Handbewegung kurz vor dem Gesicht oder der Tasche gezielt umgeleitet wird, bricht der unbewusste Reflex augenblicklich zusammen, weil die gewohnte Endbelohnung ausbleibt. Dein Gehirn gerät kurz ins Stocken, realisiert die Veränderung und lernt mit jedem Mal schneller, dass der alte Ablauf ab sofort ungültig ist.",
+                action: "Hier ist deine heutige Entdeckung, um diese Technik perfekt in deinen Alltag zu integrieren: Wann immer deine Hand heute unbewusst zur Jackentasche, zur Hosentasche oder direkt zum Mund wandert, stoppst du diese Bewegung und leitest sie sofort um. Fasse dir stattdessen demonstrativ ans Ohr, greife zielstrebig nach deinem Wasserglas oder strecke den Arm weit nach oben. Durch diese einfache, aber extrem wirkungsvolle physische Umleitung verwirrst du den Autopiloten und verankerst Schritt für Schritt die neue, gesunde Handlungsfreiheit in deinem Nervensystem.",
+                quiz: {
+                    question: "Wie heißt die Methode zur Umleitung von Mustern?",
+                    options: ["A. Entkopplungsmethode / Habit Reversal", "B. Kognitive Isolation", "C. Achtsamkeitstraining", "D. Stimulus-Resektion"],
+                    correct: 0
+                }
+            },
+            {
+                day: 19,
+                title: "Die Heilungs-Zeitachse",
+                aha: "Spüre die tiefe körperliche Erneuerung in jeder Zelle – deine Lunge und deine feinen Sinne regenerieren sich von Tag zu Tag spürbar mehr! Wir vergessen im Alltag viel zu schnell, wie rasant sich unser Organismus erholt, wenn man ihm endlich den lebenswichtigen Freiraum schenkt. Jedes Mal, wenn du heute tief einatmest, nimmst du frischen Sauerstoff auf, statt giftigen Rauch. Genieße dieses wachsende Gefühl von Vitalität, denn dein Körper bedankt sich jeden einzelnen Tag mit purer Kraft für deine Entscheidung zur Freiheit.",
+                neuro: "Aus neurobiologischer und medizinischer Sicht laufen in deinem Körper faszinierende Reparaturprozesse auf Hochtouren. Bereits nach zwei bis drei Tagen ohne Rauch beginnen sich die zuvor abgestumpften Nervenenden für Geruch und Geschmack vollständig zu regenerieren, sodass du plötzlich wieder Nuancen schmeckst, die jahrelang verborgen waren. Nach rund drei Monaten hat sich zudem deine Lungenkapazität um bis zu dreißig Prozent erhöht, was deine körperliche Ausdauer drastisch steigert und dir ein völlig neues Bewegungsgefühl schenkt.",
+                action: "Hier ist deine heutige Entdeckung, um diese positive körperliche Entwicklung schwarz auf weiß festzuhalten: Nimm dir einen Stift und schreibe alle positiven Veränderungen auf, die du an dir bereits spürst und genießt. Halte fest, wie viel tiefer dein Atem fließt, wie stark deine Ausdauer im Alltag gewachsen ist, wie intensiv Gerüche und Geschmäcker zurückkehren, wie viel Geld sich im Sparschwein angesammelt hat und wie frisch du insgesamt auftrittst. Dieses persönliche Erfolgsprotokoll ist dein unwiderlegbarer Beweis, dass sich der Weg aus der Sucht jeden einzelnen Tag gelohnt hat."
+            },
+            {
+                day: 20,
+                title: "Glaubenssätze auflösen",
+                aha: "Durchschaue die alten Illusionen – Rauchen war nie ein wahrer Freund oder Stresskiller, sondern eine fesselnde Anspannungsschleife. Erkenne heute, wie oft dir dein Gehirn Geschichten erzählt hat, um die alte Sucht zu rechtfertigen.",
+                neuro: "Die psychische Abhängigkeit stützt sich maßgeblich auf unbewusste Mythen („Rauchen gibt mir Pause“, „Rauchen gehört dazu“). Wenn du diese festgefahrenen Glaubenssätze durch ehrliche Analysen entlarvst, löst sich das Gefühl von Verzicht vollständig auf und macht Platz für echte Gelassenheit.",
+                action: "Blicke auf deine Aufzeichnungen der letzten drei Wochen zurück. Vergleiche deine früheren Ausreden mit deiner heutigen klaren Sichtweise. Erkennst du, wie frei und stark dein Denken bereits geworden ist?"
+            },
+            {
+                day: 21,
+                title: "Finale Transformation",
+                aha: "Du hast es geschafft! Du hast deine neuronalen Pfade neu verdrahtet – du bist ab heute ein vollkommen freier, gesunder Nichtraucher!",
+                neuro: "Nach 21 Tagen konsequenter Umprogrammierung sind deine neuen synaptischen Netzwerke tief verankert. Das alte Suchtgedächtnis ist deaktiviert. Die biologische Hürde ist überwunden, solange du dem ersten Zug nie wieder eine Chance gibst.",
+                action: "Zerschneide symbolisch eine leere Zigarettenschachtel. Belohne dich mit dem gesparten Geld der letzten 21 Tage für etwas, das dir echte Freude schenkt!",
+                quiz: {
+                    question: "Was ist die wichtigste Zutat für deine Transformation?",
+                    options: ["A. Perfekte Methode", "B. Genetik", "C. Glaube an dich & tägliche Praxis", "D. Reine Glückssache"],
+                    correct: 2
+                }
+            }
+        ];
+
+        /* ---------- LOCALSTORAGE STATE ---------- */
+        const STORAGE_KEY_COMPLETED = 'fz_rebellion_completed_v1';
+        const STORAGE_KEY_PROFILE = 'fz_rebellion_profile_v1';
+
+        let completedDays = JSON.parse(localStorage.getItem(STORAGE_KEY_COMPLETED) || '[]');
+        let userProfile = JSON.parse(localStorage.getItem(STORAGE_KEY_PROFILE) || 'null');
+
+        /* ---------- PROFILE / METRICS ---------- */
+        function saveProfile() {
+            const name = document.getElementById('userName').value.trim();
+            const birthday = document.getElementById('userBirthday').value;
+            const cigs = parseInt(document.getElementById('userCigs').value);
+            const price = parseFloat(document.getElementById('userPrice').value);
+
+            if (!name || !birthday || isNaN(cigs) || isNaN(price)) {
+                alert('Bitte fülle alle vier Felder aus, damit deine Statistik funktioniert.');
+                return;
+            }
+
+            userProfile = { name, birthday, cigs, price };
+            localStorage.setItem(STORAGE_KEY_PROFILE, JSON.stringify(userProfile));
+            updateMetrics();
+        }
+
+        function loadProfile() {
+            if (userProfile) {
+                const n = document.getElementById('userName');
+                const b = document.getElementById('userBirthday');
+                const c = document.getElementById('userCigs');
+                const p = document.getElementById('userPrice');
+                if (n) n.value = userProfile.name || '';
+                if (b) b.value = userProfile.birthday || '';
+                if (c) c.value = userProfile.cigs || '';
+                if (p) p.value = userProfile.price || '';
+                updateMetrics();
+            }
+        }
+
+        function updateMetrics() {
+            if (!userProfile) return;
+            const since = new Date(userProfile.birthday);
+            if (isNaN(since.getTime())) return;
+            const now = new Date();
+            const ms = now - since;
+            if (ms <= 0) return;
+
+            const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+            const savedCigs = days * userProfile.cigs;
+            const cigsPerPack = 20;
+            const pricePerCig = userProfile.price / cigsPerPack;
+            const savedMoney = savedCigs * pricePerCig;
+            const minutesGained = savedCigs * 11;
+            const daysGained = (minutesGained / (60 * 24));
+
+            const el1 = document.getElementById('savedCigsValue');
+            const el2 = document.getElementById('savedMoneyValue');
+            const el3 = document.getElementById('daysGainedValue');
+            if (el1) el1.textContent = savedCigs.toLocaleString('de-DE');
+            if (el2) el2.textContent = savedMoney.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' \u20AC';
+            if (el3) el3.textContent = daysGained.toFixed(2);
+        }
+
+        /* ---------- ACTIVATE SWITCH ---------- */
+        function activateTransformation() {
+            const btn = document.getElementById('switchBtn');
+            const icon = document.getElementById('btnIcon');
+            const text = document.getElementById('btnText');
+            const msg = document.getElementById('statusMsg');
+
+            btn.classList.add('active');
+            btn.style.transform = "scale(1.05)";
+            icon.textContent = "\u2705";
+            text.textContent = "SYSTEM AKTIVIERT";
+            msg.classList.add('show');
+
+            setTimeout(() => {
+                const target = document.getElementById('days-container');
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 400);
+        }
+
+        /* ---------- ACCORDION ---------- */
+        function toggleAccordion(dayNum) {
+            const card = document.getElementById('day-card-' + dayNum);
+            if (card) card.classList.toggle('open');
+        }
+
+        /* ---------- RENDER DAYS ---------- */
+        function renderDays() {
+            const container = document.getElementById('days-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            daysData.forEach(item => {
+                let phase = 'Freiheits-Phase';
+                if (item.day <= 7) phase = 'Detox-Woche';
+                else if (item.day <= 14) phase = 'Umgebungs-Woche';
+                else phase = 'Identitäts-Woche';
+
+                let quizHtml = '';
+                if (item.quiz) {
+                    quizHtml = '<div class="quiz-box">' +
+                        '<div class="quiz-title">&#129504; Wissens-Check</div>' +
+                        '<p style="color:#cbd5e1;margin-bottom:10px;">' + item.quiz.question + '</p>' +
+                        '<div class="quiz-options">' +
+                        item.quiz.options.map((opt, idx) =>
+                            '<button class="quiz-btn" onclick="checkQuiz(this, ' + item.day + ', ' + idx + ', ' + item.quiz.correct + ', event)">' + opt + '</button>'
+                        ).join('') +
+                        '</div>' +
+                        (item.quiz.explain ? '<div class="quiz-explain" id="quizExplain' + item.day + '">' + item.quiz.explain + '</div>' : '') +
+                        '</div>';
+                }
+
+                let kickstartHtml = '';
+                if (item.kickstart) {
+                    kickstartHtml = '<div class="kickstart-box">' +
+                        '<h5>&#129482; Bonus-Tipp:</h5>' +
+                        '<p>' + item.kickstart + '</p>' +
+                        '</div>';
+                }
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                if (completedDays.includes(item.day)) card.classList.add('completed');
+                card.id = 'day-card-' + item.day;
+
+                const isDone = completedDays.includes(item.day);
+
+                card.innerHTML =
+                    '<div class="day-header" onclick="toggleAccordion(' + item.day + ')">' +
+                        '<div class="day-header-left">' +
+                            '<span class="day-badge">TAG ' + item.day + '</span>' +
+                            '<span class="day-title-preview">' + item.title + '</span>' +
+                        '</div>' +
+                        '<div class="day-header-right">' +
+                            '<span class="phase-tag">' + phase + '</span>' +
+                            '<div class="chevron-icon">&#9660;</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="day-content">' +
+                        '<div class="highlight-box">' +
+                            '<strong>&#128161; Aha-Moment:</strong>' +
+                            '<p style="margin-top:8px;">' + item.aha + '</p>' +
+                        '</div>' +
+                        '<div class="neuro-box">' +
+                            '<h5>&#129504; Neuro-Fokus</h5>' +
+                            '<p>' + item.neuro + '</p>' +
+                        '</div>' +
+                        '<div class="action-box">' +
+                            '<h5>&#127919; Deine heutige Aufgabe (deine Action)</h5>' +
+                            '<p>' + item.action + '</p>' +
+                        '</div>' +
+                        kickstartHtml +
+                        quizHtml +
+                        '<button class="btn-complete' + (isDone ? ' is-done' : '') + '" onclick="toggleDay(' + item.day + ', event)" id="completeBtn' + item.day + '">' +
+                            (isDone ? '&#9989; Tag erledigt' : '&#9744; Tag als erledigt markieren') +
+                        '</button>' +
+                    '</div>';
+                container.appendChild(card);
+            });
+
+            updateProgress();
+        }
+
+        /* ---------- COMPLETE DAY ---------- */
+        function toggleDay(dayNum, event) {
+            if (event) event.stopPropagation();
+
+            if (completedDays.includes(dayNum)) {
+                completedDays = completedDays.filter(d => d !== dayNum);
+            } else {
+                completedDays.push(dayNum);
+                completedDays.sort((a, b) => a - b);
+            }
+            localStorage.setItem(STORAGE_KEY_COMPLETED, JSON.stringify(completedDays));
+
+            const card = document.getElementById('day-card-' + dayNum);
+            const btn = document.getElementById('completeBtn' + dayNum);
+
+            if (completedDays.includes(dayNum)) {
+                if (card) card.classList.add('completed');
+                if (btn) {
+                    btn.classList.add('is-done');
+                    btn.innerHTML = '&#9989; Tag erledigt';
+                }
+            } else {
+                if (card) card.classList.remove('completed');
+                if (btn) {
+                    btn.classList.remove('is-done');
+                    btn.innerHTML = '&#9744; Tag als erledigt markieren';
+                }
+            }
+
+            updateProgress();
+            checkFinalRebellion();
+        }
+
+        /* ---------- PROGRESS ---------- */
+        function updateProgress() {
+            const count = completedDays.length;
+            const total = daysData.length;
+            const pct = (count / total) * 100;
+            const fill = document.getElementById('progressFill');
+            const txt = document.getElementById('progressText');
+            if (fill) fill.style.width = pct + '%';
+            if (txt) txt.textContent = count + ' / ' + total + ' Tagen abgeschlossen';
+        }
+
+        /* ---------- QUIZ ---------- */
+        function checkQuiz(btn, dayNum, selectedIdx, correctIdx, event) {
+            if (event) event.stopPropagation();
+
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('.quiz-btn');
+
+            buttons.forEach((b, idx) => {
+                b.disabled = true;
+                if (idx === correctIdx) {
+                    b.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    b.classList.add('wrong');
+                }
+            });
+
+            const exp = document.getElementById('quizExplain' + dayNum);
+            if (exp) exp.classList.add('show');
+        }
+
+        /* ---------- FINAL REBELLION SCREEN ---------- */
+        function checkFinalRebellion() {
+            if (completedDays.length >= 21) {
+                setTimeout(showRebellionScreen, 600);
+            }
+        }
+
+        function showRebellionScreen() {
+            const screen = document.getElementById('rebellionScreen');
+            if (!screen) return;
+            screen.classList.add('show');
+            document.body.style.overflow = 'hidden';
+
+            const nameEl = document.getElementById('rebellionName');
+            const lineEl = document.getElementById('rebellionLine');
+            if (userProfile && userProfile.name) {
+                nameEl.textContent = userProfile.name + ', deine Rebellion ist komplett!';
+                if (lineEl) lineEl.textContent = 'Du hast ' + (userProfile.cigs * 21).toLocaleString('de-DE') + ' Zigaretten nicht geraucht – und dein Körper, dein Geldbeutel und dein Leben feiern mit dir.';
+            }
+
+            if (userProfile) {
+                const since = new Date(userProfile.birthday);
+                const now = new Date();
+                const ms = Math.max(now - since, 21 * 24 * 60 * 60 * 1000);
+                const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+                const savedCigs = days * userProfile.cigs;
+                const pricePerCig = userProfile.price / 20;
+                const savedMoney = savedCigs * pricePerCig;
+                const minutesGained = savedCigs * 11;
+                const daysGained = (minutesGained / (60 * 24));
+
+                const el1 = document.getElementById('finalCigs');
+                const el2 = document.getElementById('finalMoney');
+                const el3 = document.getElementById('finalLifeDays');
+                if (el1) el1.textContent = savedCigs.toLocaleString('de-DE');
+                if (el2) el2.textContent = savedMoney.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' \u20AC';
+                if (el3) el3.textContent = daysGained.toFixed(2);
+            } else {
+                const el1 = document.getElementById('finalCigs');
+                const el2 = document.getElementById('finalMoney');
+                const el3 = document.getElementById('finalLifeDays');
+                if (el1) el1.textContent = (21 * 15).toLocaleString('de-DE');
+                if (el2) el2.textContent = (21 * 15 * 0.40).toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' \u20AC';
+                if (el3) el3.textContent = ((21 * 15 * 11) / (60 * 24)).toFixed(2);
+            }
+
+            startFireworks();
+        }
+
+        function closeRebellionScreen() {
+            const screen = document.getElementById('rebellionScreen');
+            if (!screen) return;
+            screen.classList.remove('show');
+            document.body.style.overflow = '';
+            stopFireworks();
+        }
+
+        function restartTransformation() {
+            if (confirm('Möchtest du wirklich neu starten? Alle deine Tag-Markierungen werden zurückgesetzt.')) {
+                completedDays = [];
+                localStorage.removeItem(STORAGE_KEY_COMPLETED);
+                renderDays();
+                closeRebellionScreen();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        /* ---------- FIREWORKS + CONFETTI ---------- */
+        let fireworksAnim = null;
+        let particles = [];
+        let fireworks = [];
+
+        function startFireworks() {
+            const canvas = document.getElementById('fireworksCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            for (let i = 0; i < 180; i++) {
+                particles.push(makeConfetti());
+            }
+            launchFirework();
+
+            function animate() {
+                ctx.fillStyle = 'rgba(6, 9, 17, 0.18)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.12;
+                    p.vx *= 0.99;
+                    p.life--;
+
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = Math.max(p.life / p.maxLife, 0);
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.5);
+                    ctx.restore();
+
+                    if (p.life <= 0 || p.y > canvas.height + 50) {
+                        particles.splice(i, 1);
+                    }
+                }
+
+                for (let i = fireworks.length - 1; i >= 0; i--) {
+                    const fw = fireworks[i];
+                    fw.x += fw.vx;
+                    fw.y += fw.vy;
+                    fw.vy += 0.05;
+                    fw.trail.push({ x: fw.x, y: fw.y });
+                    if (fw.trail.length > 8) fw.trail.shift();
+
+                    for (let t = 0; t < fw.trail.length; t++) {
+                        const pt = fw.trail[t];
+                        const alpha = t / fw.trail.length;
+                        ctx.fillStyle = fw.color;
+                        ctx.globalAlpha = alpha;
+                        ctx.beginPath();
+                        ctx.arc(pt.x, pt.y, 2.5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    if (fw.y <= fw.targetY || fw.vy >= 0) {
+                        const colors = ['#00f3ff', '#00ff88', '#ffe14d', '#ff4d8d', '#b14bff'];
+                        for (let e = 0; e < 60; e++) {
+                            const angle = (Math.PI * 2 * e) / 60;
+                            const speed = Math.random() * 5 + 2;
+                            particles.push({
+                                x: fw.x,
+                                y: fw.y,
+                                vx: Math.cos(angle) * speed,
+                                vy: Math.sin(angle) * speed,
+                                size: Math.random() * 5 + 2,
+                                color: colors[Math.floor(Math.random() * colors.length)],
+                                life: 80,
+                                maxLife: 80,
+                                rotation: Math.random() * Math.PI * 2
+                            });
+                        }
+                        fireworks.splice(i, 1);
+                    }
+                }
+
+                if (Math.random() < 0.03 && fireworks.length < 4) {
+                    launchFirework();
+                }
+
+                if (Math.random() < 0.5 && particles.length < 280) {
+                    particles.push(makeConfetti());
+                }
+
+                fireworksAnim = requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        function makeConfetti() {
+            const colors = ['#00f3ff', '#00ff88', '#ffe14d', '#ff4d8d', '#b14bff', '#ffffff'];
+            return {
+                x: Math.random() * window.innerWidth,
+                y: -20 - Math.random() * 100,
+                vx: (Math.random() - 0.5) * 3,
+                vy: Math.random() * 2 + 1,
+                size: Math.random() * 6 + 3,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                life: 220,
+                maxLife: 220,
+                rotation: Math.random() * Math.PI * 2
+            };
+        }
+
+        function launchFirework() {
+            const colors = ['#00f3ff', '#00ff88', '#ffe14d', '#ff4d8d', '#b14bff'];
+            fireworks.push({
+                x: Math.random() * window.innerWidth * 0.8 + window.innerWidth * 0.1,
+                y: window.innerHeight,
+                vx: (Math.random() - 0.5) * 3,
+                vy: -((Math.random() * 4) + 9),
+                targetY: window.innerHeight * (0.2 + Math.random() * 0.3),
+                color: colors[Math.floor(Math.random() * colors.length)],
+                trail: []
+            });
+        }
+
+        function stopFireworks() {
+            if (fireworksAnim) {
+                cancelAnimationFrame(fireworksAnim);
+                fireworksAnim = null;
+            }
+            const canvas = document.getElementById('fireworksCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            particles = [];
+            fireworks = [];
+        }
+
+        /* ---------- INIT ---------- */
+        window.onload = function() {
+            loadProfile();
+            renderDays();
+        };
+    </script>
+</body>
+</html>
