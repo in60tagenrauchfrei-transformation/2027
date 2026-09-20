@@ -161,6 +161,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .card::before {
@@ -173,6 +174,31 @@
 
         .card.completed { border-color: rgba(0, 255, 136, 0.4); }
         .card.completed::before { background: var(--success-green); }
+
+        /* Locked Day Styles */
+        .card.locked {
+            opacity: 0.55;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .card.locked::before {
+            background: var(--text-muted);
+        }
+        .card.locked .day-header {
+            cursor: not-allowed;
+        }
+
+        .lock-badge {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
         .intro-card {
             border: 1px solid rgba(0, 243, 255, 0.3);
@@ -1098,7 +1124,7 @@
                 </div>
                 <div class="fact-item">
                     <h4>3. Der Entzug ist endlich</h4>
-                    <p>Die körperliche Entzugsphase (das „Ziehen“ im Körper) dauert nur wenige Tage. Was bleibt, ist eine alte Gewohnheit – und die kannst du jederzeit ersetzen. Das Schlimmste liegt also hinter dir, nicht vor dir.</p>
+                    <p>Die körperliche Entzugsphase (das „Ziehen“ im Körper) dauert nur wenige Tage. What bleibt, ist eine alte Gewohnheit – und die kannst du jederzeit ersetzen. Das Schlimmste liegt also hinter dir, nicht vor dir.</p>
                 </div>
                 <div class="fact-item">
                     <h4>4. Lebe im Jetzt</h4>
@@ -1341,7 +1367,7 @@
                 day: 7,
                 title: "Wochen-Reflexion & Identität",
                 aha: "Du bist ab sofort kein klassischer „Raucher, der verzichtet und leidet“, sondern du wächst von Tag zu Tag mehr zu einem absolut freien, unerschütterlich kraftvollen Nichtraucher heran. Diese gedankliche Neuausrichtung ist der absolute Schlüssel für deinen langfristigen Erfolg. Wenn du aufhörst, dich als Opfer des Entzugs zu sehen, sondern stattdessen die neue Rolle annimmst, verändert sich deine gesamte innere Haltung. Dein Gehirn beginnt sofort damit, alte Zweifel über Bord zu werfen und sich voll und ganz auf deine neue, gesunde Realität einzustellen.",
-                neuro: "Aus neurobiologischer Sicht erfordert jede nachhaltige Verhaltensänderung zwingend einen echten Identitätswechsel. Wenn du dein inneres Selbstbild transformierst, passen sich deine unbewussten neuronalen Verhaltensmuster im Gehirn ganz automatisch an diese neue Identität an. Du musst dich dann gar nicht mehr krampfhaft zusammenreißen, weil dein Handeln organisch zu dem passt, wer du im tiefsten Inneren nun bist: ein Mensch, der schlichtweg nicht mehr raucht. Dein Gehirn verdrahtet sich neu und unterstützt dich aktiv dabei, diese neue Wahrheit zu leben.",
+                neuro: "Aus neurobiologischer Sicht erfordert jede nachhaltige Verhaltensänderung zwingend einen echten Identitätswechsel. Wenn du dein inneres Selbstbild transformierst, passen sich deine unbewussten neuronalen Verhaltensmuster im Gehirn ganz automatisch an diese neue Identität an. Du musst dich dann gar nicht mehr krampfhaft zusammenreißen, weil dein Handeln organisch zu dem passt, wer du im tiefsten Inneren nun bist: a Mensch, der schlichtweg nicht mehr raucht. Dein Gehirn verdrahtet sich neu und unterstützt dich aktiv dabei, diese neue Wahrheit zu leben.",
                 action: "Hier ist deine heutige Entdeckung, um diese neue Identität tief in deinem Unterbewusstsein zu verankern: Stelle dich heute bewusst vor den Spiegel, blicke dir fest und selbstbewusst in die Augen und sprich laut und klar die folgenden Worte aus: „Ich werde stetig stärker. Ich habe die volle Kontrolle. Ich bin Nichtraucher.“ Nutze diese kraftvolle Affirmation, um jeden Zweifel wegzublasen. Nimm dir im Anschluss einen Zettel und reflektiere deine erste erfolgreiche rauchfreie Woche schriftlich – halte fest, wie stolz du bist, welche Hürden du gemeistert hast und wie sich deine neue Freiheit in deinem Körper anfühlt."
             },
             {
@@ -1394,7 +1420,7 @@
                 title: "Progressive Muskelrelaxation (PMR)",
                 aha: "Körperliche Entspannung baut psychischen Stress sofort und effektiv ab – nutze deshalb ganz gezielt die enorme Kraft der progressiven Muskelentspannung für dich. Wir glauben oft, dass wir erst im Kopf zur Ruhe kommen müssen, bevor sich der Körper entspannt. Doch der Weg funktioniert in beide Richtungen: Wenn du die physische Anspannung gezielt löst, folgt das mentale Wohlbefinden ganz automatisch. Du nimmst deinem Körper damit das biologische Signal von Alarmbereitschaft und schenkst dir selbst tiefe, wohlverdiente Erholung.",
                 neuro: "Aus neurobiologischer Sicht greifen körperliche und mentale Anspannung direkt und unzertrennlich ineinander. Über das bewährte Prinzip der progressiven Muskelentspannung nach Jacobson, kurz PMR genannt, wird die massive Ausschüttung von Stresshormonen wie Cortisol im Körper sofort gestoppt. Stattdessen schaltet dein Nervensystem auf Erholung um, die Herzfrequenz sinkt, und dein Gehirn erhält die Rückmeldung, dass akut keine Gefahr mehr besteht. Du durchbrichst die physiologische Stressspirale auf direktestem Wege.",
-                action: "Hier ist deine heutige Entdeckung, um diesen tiefen Entspannungseffekt sofort in deinen Tag zu integrieren: Nimm dir zehn ungestörte Minuten Zeit für die PMR-Übung. Setze oder lege dich bequem hin, spanne nacheinander deine Hände, dein Gesicht, deine Schultern, deinen Bauch und deine Beine für jeweils fünf Sekunden lang extrem fest an und lasse sie danach schlagartig für zehn Sekunden komplett locker. Spüre in den Moment der Entspannung hinein und genieße, wie der Stress spürbar aus deinen Muskeln weicht."
+                action: "Hier ist deine heutige Entdeckung, um diesen tiefen Entspannungseffekt sofort in deinen Tag zu integrieren: Nimm dir zehn ungestörte Minuten Zeit für die PMR-Übung. Setze oder lege dich bequem hin, spanne nacheinander deine Hände, dein Gesicht, deine Schultern, dein Bauch und deine Beine für jeweils fünf Sekunden lang extrem fest an und lasse sie danach schlagartig für zehn Sekunden komplett locker. Spüre in den Moment der Entspannung hinein und genieße, wie der Stress spürbar aus deinen Muskeln weicht."
             },
             {
                 day: 14,
@@ -1472,9 +1498,22 @@
         /* ---------- LOCALSTORAGE STATE ---------- */
         const STORAGE_KEY_COMPLETED = 'fz_rebellion_completed_v1';
         const STORAGE_KEY_PROFILE = 'fz_rebellion_profile_v1';
+        const STORAGE_KEY_START = 'fz_rebellion_start_timestamp';
 
         let completedDays = JSON.parse(localStorage.getItem(STORAGE_KEY_COMPLETED) || '[]');
         let userProfile = JSON.parse(localStorage.getItem(STORAGE_KEY_PROFILE) || 'null');
+
+        /* ---------- UNLOCKED DAYS CALCULATION ---------- */
+        function getUnlockedDaysCount() {
+            let startTime = localStorage.getItem(STORAGE_KEY_START);
+            if (!startTime && userProfile && userProfile.birthday) {
+                startTime = new Date(userProfile.birthday).getTime();
+            }
+            if (!startTime) return 1; // Standardmäßig ist nur Tag 1 offen, bis gestartet wird
+            const diffTime = Date.now() - parseInt(startTime);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            return Math.max(1, Math.min(21, diffDays + 1));
+        }
 
         /* ---------- PROFILE / METRICS ---------- */
         function saveProfile() {
@@ -1490,7 +1529,14 @@
 
             userProfile = { name, birthday, cigs, price };
             localStorage.setItem(STORAGE_KEY_PROFILE, JSON.stringify(userProfile));
+            
+            // Startdatum für die Tagesfreischaltung setzen falls noch nicht vorhanden
+            if (!localStorage.getItem(STORAGE_KEY_START)) {
+                localStorage.setItem(STORAGE_KEY_START, new Date(birthday).getTime());
+            }
+
             updateMetrics();
+            renderDays();
         }
 
         function loadProfile() {
@@ -1509,10 +1555,9 @@
 
         function updateMetrics() {
             if (!userProfile) return;
-            const since = new Date(userProfile.birthday);
-            if (isNaN(since.getTime())) return;
+            let startTime = localStorage.getItem(STORAGE_KEY_START) || new Date(userProfile.birthday).getTime();
             const now = new Date();
-            const ms = now - since;
+            const ms = now - startTime;
             if (ms <= 0) return;
 
             const days = Math.floor(ms / (1000 * 60 * 60 * 24));
@@ -1533,6 +1578,10 @@
 
         /* ---------- ACTIVATE SWITCH ---------- */
         function activateTransformation() {
+            if (!localStorage.getItem(STORAGE_KEY_START)) {
+                localStorage.setItem(STORAGE_KEY_START, Date.now());
+            }
+
             const btn = document.getElementById('switchBtn');
             const icon = document.getElementById('btnIcon');
             const text = document.getElementById('btnText');
@@ -1544,6 +1593,8 @@
             text.textContent = "SYSTEM AKTIVIERT";
             msg.classList.add('show');
 
+            renderDays();
+
             setTimeout(() => {
                 const target = document.getElementById('days-container');
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1552,6 +1603,11 @@
 
         /* ---------- ACCORDION ---------- */
         function toggleAccordion(dayNum) {
+            const unlockedCount = getUnlockedDaysCount();
+            if (dayNum > unlockedCount) {
+                alert('🔒 Dieser Tag ist noch gesperrt! Er öffnet sich erst am Folgetag.');
+                return;
+            }
             const card = document.getElementById('day-card-' + dayNum);
             if (card) card.classList.toggle('open');
         }
@@ -1561,6 +1617,8 @@
             const container = document.getElementById('days-container');
             if (!container) return;
             container.innerHTML = '';
+
+            const unlockedCount = getUnlockedDaysCount();
 
             daysData.forEach(item => {
                 let phase = 'Freiheits-Phase';
@@ -1590,12 +1648,22 @@
                         '</div>';
                 }
 
+                const isLocked = item.day > unlockedCount;
+                const isDone = completedDays.includes(item.day);
+
                 const card = document.createElement('div');
                 card.className = 'card';
-                if (completedDays.includes(item.day)) card.classList.add('completed');
+                if (isLocked) card.classList.add('locked');
+                if (isDone) card.classList.add('completed');
                 card.id = 'day-card-' + item.day;
 
-                const isDone = completedDays.includes(item.day);
+                let rightContentHtml = '';
+                if (isLocked) {
+                    rightContentHtml = '<span class="lock-badge">&#128274; Gesperrt (Folgetag)</span>';
+                } else {
+                    rightContentHtml = '<span class="phase-tag">' + phase + '</span>' +
+                                       '<div class="chevron-icon">&#9660;</div>';
+                }
 
                 card.innerHTML =
                     '<div class="day-header" onclick="toggleAccordion(' + item.day + ')">' +
@@ -1604,8 +1672,7 @@
                             '<span class="day-title-preview">' + item.title + '</span>' +
                         '</div>' +
                         '<div class="day-header-right">' +
-                            '<span class="phase-tag">' + phase + '</span>' +
-                            '<div class="chevron-icon">&#9660;</div>' +
+                            rightContentHtml +
                         '</div>' +
                     '</div>' +
                     '<div class="day-content">' +
@@ -1718,9 +1785,9 @@
             }
 
             if (userProfile) {
-                const since = new Date(userProfile.birthday);
+                let startTime = localStorage.getItem(STORAGE_KEY_START) || new Date(userProfile.birthday).getTime();
                 const now = new Date();
-                const ms = Math.max(now - since, 21 * 24 * 60 * 60 * 1000);
+                const ms = Math.max(now - startTime, 21 * 24 * 60 * 60 * 1000);
                 const days = Math.floor(ms / (1000 * 60 * 60 * 24));
                 const savedCigs = days * userProfile.cigs;
                 const pricePerCig = userProfile.price / 20;
@@ -1758,6 +1825,7 @@
             if (confirm('Möchtest du wirklich neu starten? Alle deine Tag-Markierungen werden zurückgesetzt.')) {
                 completedDays = [];
                 localStorage.removeItem(STORAGE_KEY_COMPLETED);
+                localStorage.removeItem(STORAGE_KEY_START);
                 renderDays();
                 closeRebellionScreen();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
