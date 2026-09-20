@@ -244,7 +244,7 @@
             background: rgba(0, 243, 255, 0.05);
             border-left: 3px solid var(--neon-cyan);
             padding: 16px 20px;
-            margin-top: 20px;
+            margin-top: 15px;
             border-radius: 0 8px 8px 0;
             font-weight: 600;
             color: var(--text-white);
@@ -309,6 +309,66 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 6px;
+        }
+
+        /* AUDIO PLAYER STYLES */
+        .audio-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(6, 12, 24, 0.9);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 12px;
+            padding: 10px 16px;
+            margin-bottom: 15px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-audio {
+            background: rgba(0, 243, 255, 0.12);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25 ease;
+            text-transform: uppercase;
+        }
+
+        .btn-audio:hover {
+            background: var(--neon-cyan);
+            color: #040914;
+            box-shadow: 0 0 15px var(--cyan-glow);
+        }
+
+        .btn-audio.playing {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(177, 75, 255, 0.6);
+        }
+
+        .audio-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .audio-time {
+            color: var(--neon-cyan);
+            font-weight: 700;
         }
 
         .section-header {
@@ -1107,7 +1167,7 @@
             </div>
 
             <div class="quote-box">
-                „Der Körper ist das einzige Haus, in dem du wirklich wohnst. Gib auf ihn acht – er hat keine Immobilie, in die er umziehen kann, wenn du ihn ruinierst.“
+                „Der Körper ist das einzige Haus, in dem du wirklich wohnst. Gib auf ihn acht – er hat keine Immobilien, in die er umziehen kann, wenn du ihn ruinierst.“
                 <span class="quote-author">- Frank Zimmermann, Rauchfrei-Rebellion 2027</span>
             </div>
         </div>
@@ -1320,13 +1380,15 @@
             {
                 day: 1,
                 title: "Schockiere dein Gehirn",
+                audio: "audio/tag1.mp3",
                 aha: "Dein Gehirn hat den Griff zur Zigarette über Jahre hinweg als einen automatischen Schutzreflex abgespeichert. Doch jeder einzelne Zug flutet deinen Körper mit Milliarden freier Radikale, die massiven oxidativen Stress auslösen. Diese reaktionsfreudigen Sauerstoffmoleküle schädigen ununterbrochen deine Zellen, beschleunigen gefährliche Arteriosklerose und versetzen dein gesamtes Gefäßsystem in eine schwere Dauerentzündung. Genau diesen zerstörerischen Kreislauf durchbrichst du jetzt, indem du heute ein glasklares und unmissverständliches mentales Stopp-Signal setzt. Dein Körper verdient es, endlich geschützt zu werden, anstatt durch alte, konditionierte Verhaltensmuster kontinuierlich geschwächt zu werden. Nutze diese Erkenntnis als deinen persönlichen Wendepunkt, um die Kontrolle über deine Biologie und deine täglichen Handlungen kraftvoll zurückzuerlangen.",
-                neuro: "Diese bewährte Methode der Verhaltensunterbrechung nutzt die enorme Neuroplastizität deines Gehirns, um alte, schädliche neuronale Pfade Schritt für Schritt nachhaltig umzuschalten. Jedes Mal, wenn du diesen kleinen Reiz anwendest und das Stopp-Signal gibst, schwächst du die alte Suchtschleife ab und stärkst gleichzeitig deine mentale Selbstwirksamkeit. Du übernimmst aktiv das Ruder zurück, statt dich von chemischen Reizen oder alten Gewohnheiten fremdsteuern zu lassen. Halte diese einfache Routine in den kommenden drei Wochen konsequent durch und beobachte, wie der Griff zur Zigarette seine automatische Macht über dich verliert. Du bist stärker als dein Impuls, und jeder einzelne dieser bewussten Momente bringt dich in ein gesünderes Leben.",
+                neuro: "Diese bewährte Methode der Verhaltensunterbrechung nutzt die enorme Neuroplastizität deines Gehirns, um alte, schädliche neuronale Pfade Schritt für Schritt nachhaltig umzuschalten. Jedes Mal, wenn du diesen kleinen Reiz anwendest und das Stopp-Signal gibst, schwächst du die alte Suchtschleife ab und stärkst gleichzeitig deine mentale Selbstwirksamkeit. Du übernimmst aktiv das Ruder zurück, statt dich von chemischen Reizen oder alten Gewohnheiten fremdsteuern zu lassen. Halte diese einfache Routine in den kommenden drei Wochen konsequent durch und beobachte, wie der Griff zur Zigarette seine automatische Macht über dich verliert. Du bist stäker als dein Impuls, und jeder einzelne dieser bewussten Momente bringt dich in ein gesünderes Leben.",
                 action: "Trage ab sofort für die nächsten 21 Tage konsequent ein schlichtes, elastisches Gummiband gut sichtbar an deinem Handgelenk. Jedes Mal, wenn der unbändige Impuls zum Rauchen in dir aufsteigt, schnippst du das Band ganz bewusst und leicht gegen deine Haut. Dieser gezielte, kleine physische Reiz holt dein Bewusstsein sofort aus dem Autopiloten zurück in die reale Gegenwart. Gleichzeitig sprichst du in diesem exakten Moment laut oder fest innerlich die drei klaren Worte: „Nein. Neu. Jetzt.“ Damit unterbrichst du den tief verankerten neurologischen Automatenkreislauf unmittelbar an seiner Wurzel und schaffst einen geschützten Raum der freien Entscheidung."
             },
             {
                 day: 2,
                 title: "Gewohnheit vs. Sucht",
+                audio: "audio/tag2.mp3",
                 aha: "Glaubst du wirklich, dass die Zigarette dir gerade echte Entspannung bringt? Lass dich von deinem Gehirn nicht länger täuschen. Rauchen spendet nämlich überhaupt keine Erholung, sondern beseitigt in Wahrheit nur exakt den Nikotinmangel, den die vorherige Zigarette selbst erzeugt hat. Sobald der Pegel im Blut sinkt, schlägt das System Alarm. Genau diesen perfiden Kreislauf durchschauen wir heute gemeinsam, damit du die Illusion endlich ablegst.",
                 neuro: "Wissenschaftlich gesehen erreicht Nikotin innerhalb von nur sieben Sekunden dein Gehirn und bindet dort sofort an die nikotinergen Acetylcholin-Rezeptoren. Das greift massiv in dein vegetatives Nervensystem ein. Die Sucht gaukelt dir ein positives Gefühl von Ruhe vor, stellt biologisch gesehen aber lediglich für wenige Minuten den ganz normalen Zustand eines Nichtrauchers wieder her. Du bezahlst also einen verdammt hohen Preis für ein Gefühl, das andere Menschen dauerhaft gratis haben.",
                 action: "Zeit für deine neue Entdeckung, um dieses biologische Spiel sofort zu stoppen. Ersetze die gewohnte Handbewegung ab heute konsequent durch eine feste Ersatzhandlung: Trinke bei jedem Rauchverlangen sofort ein großes Glas kaltes, klares Wasser, kaue ein zuckerfreies Kaugummi oder massiere deine Fingerkuppen für dreißig Sekunden intensiv. Dein neues Tagesziel lautet zudem mindestens zwei Liter Wasser. Nutze diese klaren physischen Reize, um dein Gehirn auszutricksen und die alte Gewohnheit endgültig zu überschreiben.",
@@ -1339,6 +1401,7 @@
             {
                 day: 3,
                 title: "Werde Detektiv deiner Muster",
+                audio: "audio/tag3.mp3",
                 aha: "Der vermeintliche Alltagsstress, den du so deutlich spürst, kommt in Wahrheit gar nicht von deinem Job oder deinem Leben. Er wird überwiegend durch den ständigen Entzug der letzten Zigarette ausgelöst. Jedes Mal, wenn der Nikotinspiegel sinkt, schlägt dein Körper Alarm und erzeugt puren Stress, den du dann fälschlicherweise der Außenwelt zuschreibst. Genau diese fatale Verwechslung müssen wir heute auflösen, damit du erkennst, dass nicht das Leben stressig ist, sondern die Sucht.",
                 neuro: "Aus neurobiologischer Sicht ist die Abhängigkeit eine erlernte Gain-of-Function-Erkrankung des Gehirns. Das Dopaminsignal verknüpft dabei den genauen Kontext – also dein Umfeld, die Uhrzeit oder bestimmte Emotionen – fest mit dem Suchtmittel. Wenn du diese versteckten Muster und Trigger jedoch glasklar erkennst, verliert der äußere Reiz schlagartig seine unbewusste Macht über dich und deine Gefühle.",
                 action: "Hier setzt deine heutige Entdeckung an, um das System zu durchschauen. Analysiere deinen gesamten Tag ab sofort extrem präzise und schreibe dir deine persönlichen Top-Fünf-Triggersituationen auf. Ob es der morgendliche Kaffee, die Autofahrt, die Pause mit den Kollegen, der Jobstress oder der Feierabend ist: Bringe Licht ins Dunkel. Wenn du deine Auslöser schwarz auf weiß vor dir siehst, sind sie nicht mehr unberechenbar, sondern bereit für deine gezielte Veränderung."
@@ -1346,6 +1409,7 @@
             {
                 day: 4,
                 title: "Wertschätzung & Zellgesundheit",
+                audio: "audio/tag4.mp3",
                 aha: "Dein Körper ist zu keinem Zeitpunkt ein Aschenbecher gewesen, sondern er ist und bleibt dein einzig wertvolles Werkzeug für dieses Leben. Höre auf, ihn weiter zu sabotieren, und begegne ihm stattdessen genau heute mit maximaler Wertschätzung und echtem Respekt. Du hast nur diesen einen Körper, der dich jeden Tag trägt, atmet und am Leben hält. Jede Entscheidung, diesen Kreislauf zu beenden, ist ein Akt tiefster Fürsorge für dich selbst, der deine innere Stärke und deinen unerschütterlichen Selbstwert direkt widerspiegelt.",
                 neuro: "Statistisch gesehen sterben Raucher im Durchschnitt zehn Jahre früher als Menschen, die rauchfrei leben. Neunzig Prozent aller tödlichen Lungenerkrankungen sowie neun von zehn Lungenkarzinomen stehen in einem direkten, unumstößlichen Zusammenhang mit dem blauen Dunst. Doch die gute Nachricht der Neurobiologie und Medizin lautet: Sobald der Rauch endgültig stoppt, setzt ein faszinierender Selbstheilungsprozess ein und dein Gewebe beginnt sofort mit seiner tiefgreifenden Regeneration. Du kannst das Ruder also jederzeit herumreißen.",
                 action: "Zeit für deine heutige Entdeckung, um diese körperliche Wende direkt im Alltag sichtbar und spürbar zu machen. Befreie dich und deine Umgebung jetzt bewusst von jedem Rest des alten Lasters: Putze deine Zähne gründlich, wasche den festgesetzten Rauchgeruch aus deiner Kleidung, lüfte all deine Räume einmal komplett und gründlich durch und trinke reichlich frisches Wasser. Schaffe dir ein sauberes, klares Umfeld, das deinen neuen, rauchfreien Lebensstil aktiv unterstützt und dir bei jedem tiefen Atemzug zeigt, wie gut Freiheit riecht."
@@ -1353,6 +1417,7 @@
             {
                 day: 5,
                 title: "Die Biochemie der Ruhe",
+                audio: "audio/tag5.mp3",
                 aha: "Die tiefe Atmung und ganz gezielte biologische Reize beruhigen dein aufgewühltes Nervensystem blitzschnell – und das komplett ohne schädliche Giftstoffe. Wir neigen oft dazu zu glauben, dass uns die Zigarette in stressigen Momenten runterbringt, aber in Wahrheit ist es ein ganz anderer Mechanismus. Du wirst gleich erfahren, wie du genau diesen biologischen Effekt völlig eigenständig und ohne jeden Rauch erzielen kannst, um absolute innere Ruhe und mentale Kontrolle zu behalten.",
                 neuro: "Aus neurobiologischer Sicht entsteht die gefühlte Beruhigung beim Rauchen nämlich fast ausschließlich durch das unbewusste, tiefe Ein- und Ausatmen. Die berühmte 4-7-8-Atemtechnik aktiviert gezielt den Parasympathikus in deinem Körper und senkt sofort nachweisbar deine Herzfrequenz. Wenn du stattdessen bewusste Kältereize setzt, schüttet dein Gehirn körpereigenes Noradrenalin aus – exakt denselben Botenstoff, den auch Nikotin freisetzt, nur eben vollkommen gesund und natürlich.",
                 action: "Hier ist deine heutige Entdeckung, um dieses Wissen sofort in die Tat umzusetzen: Führe bei jedem aufkommenden Rauchverlangen exakt zehn Durchgänge der 4-7-8-Atmung aus – atme vier Sekunden lang tief durch die Nase ein, halte die Luft für sieben Sekunden an und atme dann acht Sekunden lang langsam durch den Mund aus.",
@@ -1361,6 +1426,7 @@
             {
                 day: 6,
                 title: "Der finanzielle Hebel",
+                audio: "audio/tag6.mp3",
                 aha: "Rauchen verbrennt nicht nur täglich deine wertvolle Gesundheit, sondern es kostet dich Stück für Stück auch deine finanzielle Unabhängigkeit und deine echte Freiheit. Viele Raucher unterschätzen völlig, welche gewaltige Summe im Laufe der Jahre buchstäblich in Rauch aufgeht. Wir blicken heute einmal ganz nüchtern und glasklar auf die nackten Zahlen, denn wenn du verstehst, wie viel Kapital hier unbemerkt versickert, wird dieses Geld zu deinem mächtigsten Motivationsfaktor für den sofortigen Ausstieg.",
                 neuro: "Aus neuroökonomischer Sicht unterschätzen wir die Dimension von Gewohnheitsausgaben massiv, weil das Gehirn in kleinen Schritten rechnet statt in Gesamtsummen. Bei einem Preis von zehn Euro pro Schachtel gibst du bei einem täglichen Konsum monatlich exakt 300 Euro und im ganzen Jahr satte 3.650 Euro aus. Rechnen wir das auf zehn Jahre hoch, reden wir über eine Summe von 36.500 Euro reinem Bargeld – und wenn du dieses Geld klug anlegen würdest, wäre es durch den Zinseszinseffekt sogar noch ein Vielfaches mehr.",
                 action: "Hier setzt deine heutige Entdeckung an, um diese Geldverbrennung sofort zu stoppen und in echten Vermögensaufbau umzuwandeln. Berechne als Erstes einmal ehrlich deine eigenen Ausgaben allein für die letzten fünf Jahre. Richte dir ab heute ein separates Sparglas oder ein digitales Unterkonto ein und überweise dort jeden einzelnen Tag genau die zehn Euro hinein, die du sonst verqualmt hättest.",
@@ -1373,6 +1439,7 @@
             {
                 day: 7,
                 title: "Wochen-Reflexion & Identität",
+                audio: "audio/tag7.mp3",
                 aha: "Du bist ab sofort kein klassischer „Raucher, der verzichtet und leidet“, sondern du wächst von Tag zu Tag mehr zu einem absolut freien, unerschütterlich kraftvollen Nichtraucher heran. Diese gedankliche Neuausrichtung ist der absolute Schlüssel für deinen langfristigen Erfolg. Wenn du aufhörst, dich als Opfer des Entzugs zu sehen, sondern stattdessen die neue Rolle annimmst, verändert sich deine gesamte innere Haltung. Dein Gehirn beginnt sofort damit, alte Zweifel über Bord zu werfen und sich voll und ganz auf deine neue, gesunde Realität einzustellen.",
                 neuro: "Aus neurobiologischer Sicht erfordert jede nachhaltige Verhaltensänderung zwingend einen echten Identitätswechsel. Wenn du dein inneres Selbstbild transformierst, passen sich deine unbewussten neuronalen Verhaltensmuster im Gehirn ganz automatisch an diese neue Identität an. Du musst dich dann gar nicht mehr krampfhaft zusammenreißen, weil dein Handeln organisch zu dem passt, wer du im tiefsten Inneren nun bist: ein Mensch, der schlichtweg nicht mehr raucht. Dein Gehirn verdrahtet sich neu und unterstützt dich aktiv dabei, diese neue Wahrheit zu leben.",
                 action: "Hier ist deine heutige Entdeckung, um diese neue Identität tief in deinem Unterbewusstsein zu verankern: Stelle dich heute bewusst vor den Spiegel, blicke dir fest und selbstbewusst in die Augen und sprich laut und klar die folgenden Worte aus: „Ich werde stetig stärker. Ich habe die volle Kontrolle. Ich bin Nichtraucher.“ Nutze diese kraftvolle Affirmation, um jeden Zweifel wegzublasen. Nimm dir im Anschluss einen Zettel und reflektiere deine erste erfolgreiche rauchfreie Woche schriftlich – halte fest, wie stolz du bist, welche Hürden du gemeistert hast und wie sich deine neue Freiheit in deinem Körper anfühlt."
@@ -1380,6 +1447,7 @@
             {
                 day: 8,
                 title: "Hinterfrage die Toxine",
+                audio: "audio/tag8.mp3",
                 aha: "Über viertausendachthundert verschiedene Chemikalien stecken in einer einzigen Zigarette – es wird Zeit, dass du wieder die unumschränkte Hoheit über deine eigenen Zellen übernimmst! Jedes Mal, wenn du früher an einem Glimmstängel gezogen hast, hast du dir nicht einfach nur Tabak, sondern einen hochkomplexen Cocktail aus industriellen Giften zugeführt. Wir schauen heute ganz genau hin, was dort eigentlich in deinen Körper transportiert wurde, damit der Ekel vor dieser Chemie deine innere Entschlossenheit für immer besiegelt.",
                 neuro: "Aus neurobiologischer und toxikologischer Sicht ist jede Zigarette ein perfekt konstruiertes Produkt zur Manipulation. Zusatzstoffe wie Ammoniak werden gezielt eingesetzt, um den pH-Wert des Rauchs so zu verändern, dass das Nikotin noch rasanter ins Gehirn schießt. Menthol betäubt gleichzeitig deine Atemwege, damit der giftige Rauch unbemerkt noch tiefer in die Lunge inhaliert werden kann. Es handelt sich hierbei um ein absolut perfides Design der Tabakindustrie, das einzig und allein dazu dient, deine körperliche und psychische Abhängigkeit maximal zu maximieren.",
                 action: "Hier ist deine heutige Entdeckung, um dich endgültig von diesem Chemie-Schwindel zu befreien: Lies dir ganz bewusst die reale Zutatenliste und die enthaltenen Substanzen von Tabakprodukten durch – konfrontiere dich mit Begriffen wie Arsen, Blei, Formaldehyd und Benzol. Mache dir in diesem Moment schwarz auf weiß klar, dass du diesen giftigen Chemikalienmix niemals wieder in deinen heiligen Körper lassen wirst. Du bist kein Müllschlucker für Industrieabfälle, sondern ein Mensch, der sich für ein reines, klares und absolut giftfreies Leben entscheidet."
@@ -1387,6 +1455,7 @@
             {
                 day: 9,
                 title: "Das 5-Minuten-Zeitfenster",
+                audio: "audio/tag9.mp3",
                 aha: "Jedes einzelne Craving ist im Grunde nichts weiter als eine temporäre Welle – nach nur wenigen Minuten flacht der körperliche und mentale Druck von ganz alleine wieder ab. Die Versuchung flüstert dir im Moment des Verlangens vielleicht zu, dass das Gefühl ewig anhalten wird, aber das ist schlichtweg eine Illusion deines Gehirns. Du musst diesem Sog nicht nachgeben, sondern darfst darauf vertrauen, dass sich der Sturm von ganz alleine legt, wenn du ihm einfach standhaft und gelassen begegnest.",
                 neuro: "Aus neurobiologischer Sicht erreicht ein akuter Suchtdruck sein absolutes neurobiologisches Maximum nach etwa drei bis fünf Minuten und klingt danach unweigerlich und messbar ab. Dein Gehirn schüttet in dieser Phase zwar kurzzeitig intensiv Signale aus, doch wenn du diesen überschaubaren Zeitraum bewusst überbrückst, ist die biochemische Welle endgültig gebrochen. Du lernst dadurch auf zellulärer Ebene, dass du jeder vermeintlichen Krise nicht hilflos ausgeliefert bist, sondern den Wellenreiter spielen kannst.",
                 action: "Hier ist deine heutige Entdeckung, um diesen Mechanismus sofort zu deinem Werkzeug zu machen: Stelle bei jedem aufkommenden Rauchverlangen sofort die Stoppuhr auf deinem Smartphone auf genau fünf Minuten ein. Beobachte das aufkommende Gefühl in deinem Körper völlig gelassen – wie ein neutraler Forscher, der ein Phänomen betrachtet – und spüre ganz bewusst mit, wie der Druck nach Ablauf der Zeit von Minute zu Minute spürbar nachlässt.",
@@ -1399,6 +1468,7 @@
             {
                 day: 10,
                 title: "Neuroplastizität & Mentales Training",
+                audio: "audio/tag10.mp3",
                 aha: "Deine eigenen Gedanken formen buchstäblich dein Gehirn – visualisiere dich deshalb jetzt und hier als absolut freien, unerschütterlich starken Nichtraucher. Was du dir im Inneren erschaffst, wird im Außen deine neue Realität. Wir unterschätzen oft, wie mächtig unsere Vorstellungskraft ist, wenn es darum geht, alte mentale Mauern einzureißen und Platz für etwas völlig Neues zu schaffen. Nutze diese schöpferische Kraft heute bewusst, um dein Gehirn auf Erfolg, Leichtigkeit und pure Freiheit zu programmieren.",
                 neuro: "Aus neurobiologischer Sicht unterscheidet dein Gehirn in der neuronalen Aktivierung kaum zwischen einer real erlebten Situation und einer intensiv vorgestellten Erfahrung. Wenn du dir deinen Erfolg bildhaft ausmalst, feurig und lebendig, feuerst du exakt dieselben Synapsen an, als würdest du es bereits leben. Lebhafte mentale Bilder stärken dadurch messbar die neuen Synapsenverbindungen für deine rauchfreie Zukunft und machen es dir von Tag zu Tag leichter, den alten Pfaden den Rücken zu kehren.",
                 action: "Hier ist deine heutige Entdeckung, um diese mentale Superkraft direkt zu aktivieren: Nimm dir einen Moment Zeit, schließe für fünf Minuten die Augen und male dir dein rauchfreies Leben in den hellsten und lebendigsten Details aus. Spüre ganz genau, wie tief und frei du plötzlich atmest, wie frisch du riechst und wie eine schier unendliche Welle neuer Energie durch deinen gesamten Körper fließt. Genieße dieses innere Bild in vollen Zügen und lass es zu deiner emotionalen Wahrheit werden."
@@ -1406,6 +1476,7 @@
             {
                 day: 11,
                 title: "Die Notfall-Strategie",
+                audio: "audio/tag11.mp3",
                 aha: "Wahre innere Stärke zeigt sich niemals in den einfachen Momenten, sondern genau dann, wenn es herausfordernd wird – deine persönliche Notfallkarte gibt dir in solchen Situationen sofort die Kontrolle zurück. Wenn der Druck steigt, neigen wir dazu, in alte, automatische Muster zu verfallen, weil unser logisches Denken kurzzeitig blockiert wird. Genau dafür brauchst du einen festen Anker, der dich sofort abfängt, dich handlungsfähig macht und dich sicher durch jede brenzlige Situation hindurchführt.",
                 neuro: "Aus neurobiologischer Sicht schaltet unser Gehirn unter starkem Stress oder akutem Verlangen augenblicklich auf primitive, automatisierte Reflexe um, während der präfrontale Kortex in den Hintergrund tritt. Das etablierte Muster der bewährten Vier-A-Methode fungiert hierbei als effektiver Notfall-Bremsschalter: Es verhindert wirksam, dass das primitive Suchtzentrum komplett das Ruder übernimmt, und gibt deinem Verstand die Steuerungsfähigkeit zurück. Du durchbrichst den Tunnelblick und schaffst einen klaren Moment der bewussten Entscheidung.",
                 action: "Hier ist deine heutige Entdeckung, um dieses mächtige Werkzeug sofort griffbereit zu haben: Schreibe dir eine kompakte Notfallkarte für deine Brieftasche oder speichere sie als Hintergrundbild auf dein Smartphone mit folgenden Schritten:<br>1. AUFSCHIEBEN: Zehn Sekunden tief durchatmen, bevor du reagierst.<br>2. AUSWEICHEN: Vorausschauend alte Muster und Gewohnheiten durchbrechen.<br>3. ABHAUEN: Die akute Triggersituation physisch für einen Moment verlassen.<br>4. ABLENKEN: Sofort kaltes Wasser trinken, Zähne putzen oder dich körperlich bewegen."
@@ -1413,6 +1484,7 @@
             {
                 day: 12,
                 title: "Kontext & Umfeld",
+                audio: "audio/tag12.mp3",
                 aha: "Verändere deinen unmittelbaren Kontext, und die Sucht verliert schlagartig ihre gewohnte und sichere Umgebung! Wir unterschätzen oft, wie stark unser physisches Umfeld unser Verhalten steuert, ohne dass wir es bewusst merken. Wenn alles noch genau so aussieht wie zu deiner Raucherzeit, erinnert dein Gehirn jede einzelne Ecke an den alten Rhythmus. Durch einen bewussten Tapetenwechsel und das Kappen äußerer Reize entziehst du der Gewohnheit den Nährboden und machst den Weg für deinen dauerhaften Erfolg frei.",
                 neuro: "Aus neurobiologischer Sicht belegen zahlreiche Untersuchungen zum Suchtverhalten etwas Faszinierendes: Sobald der gewohnte Kontext und das räumliche Umfeld radikal verändert werden, sinkt das neurologische Suchtverlangen drastisch ab, weil die typischen visuellen und räumlichen Auslöser schlichtweg fehlen. Dein Gehirn schüttet daraufhin keine automatischen Dopamin-Antizipationssignale mehr aus, wenn der Reiz ausbleibt. Du nimmst dem Autopiloten damit die Landebahn und schaffst einen geschützten Raum für neue Verhaltensweisen.",
                 action: "Hier ist deine heutige Entdeckung, um diesen Effekt sofort zu nutzen: Mache reinen Tisch in deinem gesamten Umfeld. Entferne restlos alle Aschenbecher, Feuerzeuge, Restbestände und verstaute Rauchutensilien aus deiner Sichtweite und wirf sie weg. Erzähle heute außerdem ganz bewusst mindestens drei wichtigen Menschen in deinem Leben von deinem festen Entschluss, um dir maximale soziale Verbindlichkeit und wertvolle Unterstützung zu schaffen.",
@@ -1425,6 +1497,7 @@
             {
                 day: 13,
                 title: "Progressive Muskelrelaxation (PMR)",
+                audio: "audio/tag13.mp3",
                 aha: "Körperliche Entspannung baut psychischen Stress sofort und effektiv ab – nutze deshalb ganz gezielt die enorme Kraft der progressiven Muskelentspannung für dich. Wir glauben oft, dass wir erst im Kopf zur Ruhe kommen müssen, bevor sich der Körper entspannt. Doch der Weg funktioniert in beide Richtungen: Wenn du die physische Anspannung gezielt löst, folgt das mentale Wohlbefinden ganz automatisch. Du nimmst deinem Körper damit das biologische Signal von Alarmbereitschaft und schenkst dir selbst tiefe, wohlverdiente Erholung.",
                 neuro: "Aus neurobiologischer Sicht greifen körperliche und mentale Anspannung direkt und unzertrennlich ineinander. Über das bewährte Prinzip der progressiven Muskelentspannung nach Jacobson, kurz PMR genannt, wird die massive Ausschüttung von Stresshormonen wie Cortisol im Körper sofort gestoppt. Stattdessen schaltet dein Nervensystem auf Erholung um, die Herzfrequenz sinkt, und dein Gehirn erhält die Rückmeldung, dass akut keine Gefahr mehr besteht. Du durchbrichst die physiologische Stressspirale auf direktestem Wege.",
                 action: "Hier ist deine heutige Entdeckung, um diesen tiefen Entspannungseffekt sofort in deinen Tag zu integrieren: Nimm dir zehn ungestörte Minuten Zeit für die PMR-Übung. Setze oder lege dich bequem hin, spanne nacheinander deine Hände, dein Gesicht, deine Schultern, dein Bauch und deine Beine für jeweils fünf Sekunden lang extrem fest an und lasse sie danach schlagartig für zehn Sekunden komplett locker. Spüre in den Moment der Entspannung hinein und genieße, wie der Stress spürbar aus deinen Muskeln weicht."
@@ -1432,6 +1505,7 @@
             {
                 day: 14,
                 title: "Halbzeit & Die Rückfall-Falle",
+                audio: "audio/tag14.mp3",
                 aha: "Du hast jetzt bereits zwei volle Wochen geschafft! Halte dich deshalb unerschütterlich an diese eiserne Regel: Es gibt biologisch gesehen niemals im Leben „nur eine einzige Zigarette“. Diese scheinbar harmlose Ausnahme ist die größte und heimtückischste Falle auf deinem gesamten Weg in die Freiheit. Sobald du glaubst, dir nach vierzehn Tagen Enthaltsamkeit mal eben eine gönnen zu können, fällst du genau in das alte, unbarmherzige Raster zurück.",
                 neuro: "Aus neurobiologischer Sicht reicht ein einziger Zug völlig aus, um das ruhende Belohnungssystem deines Gehirns sofort wieder mit Nikotin zu fluten und die schlafenden Rezeptoren schlagartig zu reaktivieren. Die biochemische Kettenreaktion der alten Abhängigkeit würde in diesem exakten Moment sofort von vorne beginnen und all deine harte Arbeit zunichtemachen. Dein Gehirn erinnert sich perfekt an jeden einzelnen Pfad, weshalb du diesen gefährlichen Funken niemals wieder an die alte Glut heranlassen darfst.",
                 action: "Hier ist deine heutige Entdeckung, um diesen Meilenstein fest in deinem Bewusstsein zu verankern: Nimm dir einen Stift und reflektiere deine schwersten Momente der ersten zwei Wochen ganz ehrlich auf einem Blatt Papier. Feiere diesen großartigen Halbzeit-Erfolg ausgiebig, bleibe gleichzeitig hochwachsam und festige deinen eisernen Grundsatz für den restlichen Weg: Kein einziger Zug mehr, egal was passiert!"
@@ -1439,6 +1513,7 @@
             {
                 day: 15,
                 title: "Automatismen entkoppeln",
+                audio: "audio/tag15.mp3",
                 aha: "Durchbrich deine festgefahrenen alten Routinen, und dein Gehirn bildet im absoluten Eiltempo völlig neue, stabile und rauchfreie Bahnen! Unser Gehirn liebt Gewohnheiten, weil sie Energie sparen, doch genau darin liegt die Falle des Autopiloten. Wenn du gewohnte Abläufe gezielt aufbrichst, zwingst du dein Denken aus den eingefahrenen Gleisen heraus. Nutze diesen inneren Gestaltungsspielraum heute ganz bewusst, um deinem Verstand zu zeigen, dass du Herr im eigenen Haus bist und dein Leben völlig frei neu definieren kannst.",
                 neuro: "Aus neurobiologischer und medizinischer Sicht reagiert dein Körper unglaublich schnell auf positive Veränderungen. Bereits zwanzig Minuten nach der letzten Zigarette sinken Puls und Blutdruck messbar auf gesunde Normalwerte zurück. Nach nur zwölf Stunden normalisiert sich zudem der Kohlenmonoxid-Spiegel im Blut vollkommen, sodass deine Zellen wieder optimal mit Sauerstoff versorgt werden. Jeder einzelne Tag ohne Rauch ist ein biologisches Sofortprogramm für mehr Vitalität und die Regeneration deiner körperlichen Leistungsfähigkeit.",
                 action: "Hier ist deine heutige Entdeckung, um diesen Effekt direkt in die Praxis umzusetzen: Verändere ganz gezielt ein gewohntes Morgenritual, das dich früher direkt zur Zigarette geführt hat. Trinke deinen Kaffee heute an einem völlig anderen Platz in der Wohnung oder im Garten, oder trinke als allererstes ein großes Glas kaltes Wasser und absolviere zehn bewusste Atemzüge, bevor du deine restliche Morgenroutine startest. Durch diese kleine, aber feine Unterbrechung des vertrauten Kontextes nimmst du dem alten Impuls sofort den Nährboden und stärkst deine neuen Bahnen im Gehirn.",
@@ -1451,6 +1526,7 @@
             {
                 day: 16,
                 title: "Kognitive Unterbrechung (CBT)",
+                audio: "audio/tag16.mp3",
                 aha: "Unterbrich den automatischen Gedanken blitzschnell mit einem glasklaren, entschlossenen mentalen Schnitt! Unser Kopf neigt dazu, alte Gewohnheiten wie im Film-Autopiloten abzuspulen, noch bevor wir überhaupt realisieren, was da gerade passiert. Genau diesen unbewussten Reflex musst du abfangen, bevor er die Kontrolle übernimmt. Du bist deinen Gedanken nämlich keineswegs hilflos ausgeliefert, sondern besitzt die unbändige Kraft, diesen unsichtbaren Kreislauf eigenhändig und mit sofortiger Wirkung anzuhalten.",
                 neuro: "Aus neurobiologischer Sicht bereitet unser Unbewusstes Entscheidungen oft schon einige Sekunden vor, bevor wir sie überhaupt bewusst wahrnehmen. Ein klares, lautes Stopp-Signal fungiert hierbei als effektives Bremsmanöver der kognitiven Verhaltenstherapie: Es durchbricht die unbewusste Impulsschleife direkt im Gehirn, bevor sich das Verlangen körperlich manifestieren kann. Du ziehst sozusagen die Notbremse im Kopf, holst dein Bewusstsein in die Gegenwart zurück und nimmst dem alten Verhaltensmuster augenblicklich den Wind aus den Segeln.",
                 action: "Hier ist deine heutige Entdeckung, um diese Technik perfekt anzuwenden: Sobald auch nur der kleinste Gedanke an eine Zigarette in deinem Kopf auftaucht, rufe sofort innerlich oder laut „STOPP!“ und wechsle im selben Moment demonstrativ deine Körperposition oder die aktuelle Tätigkeit. Steh auf, setz dich woanders hin oder schüttle deine Arme aus. Durch diesen physischen und mentalen Richtungswechsel schickst du ein unmissverständliches Signal an dein Nervensystem: Das Spiel ist vorbei, hier bestimmt ab sofort der Wille!"
@@ -1458,6 +1534,7 @@
             {
                 day: 17,
                 title: "Die 4 Phasen der Veränderung",
+                audio: "audio/tag17.mp3",
                 aha: "Echte Veränderung braucht nun mal ihre Zeit – und du befindest dich jetzt im entscheidenden Moment kurz vor der neuen, automatischen Gewohnheit! Am Anfang hat sich jeder Tag vielleicht noch nach einem harten Kampf angefühlt, bei dem du jeden Schritt bewusst kontrollieren musstest. Doch diese anstrengende Phase weicht langsam, und du wirst spüren, wie die Leichtigkeit Einzug hält. Dein Gehirn hat in den letzten Wochen unermüdlich gearbeitet, um den alten Pfaden den Rücken zu kehren und dir den Weg in ein völlig unbeschwertes Leben zu ebnen.",
                 neuro: "Aus neurobiologischer Sicht durchläuft jede echte Verhaltensänderung vier klassische Stufen: Sie beginnt bei der unbewussten Inkompetenz, führt über die bewusste Inkompetenz und die bewusste Kompetenz schließlich zur unbewussten Kompetenz. Nach etwa 21 Tagen konsequenter täglicher Wiederholung schleift sich das neue Verhalten tief in deine neuronalen Strukturen ein und wird zur automatischen Normalität. Du musst nicht mehr ständig überlegen oder kämpfen, weil das Nichtrauchen nun langsam zu deinem ganz natürlichen, unerschütterlichen Zustand wird.",
                 action: "Hier ist deine heutige Entdeckung, um diesen Meilenstein voll und ganz zu verinnerlichen: Erkenne ganz bewusst an, dass dir das rauchfreie Leben von Tag zu Tag spürbar leichter fällt. Nimm dir heute einen Moment Zeit, um deinen stetigen Fortschritt aktiv zu feiern – vom anstrengenden Anfang der bewussten Kompetenz bis hin zur neuen, tief verankerten Nichtraucher-Normalität. Du hast dir diesen Erfolg hart erarbeitet, und das Fundament für deine dauerhafte Freiheit steht jetzt felsenfest."
@@ -1465,6 +1542,7 @@
             {
                 day: 18,
                 title: "Physische Entkopplung",
+                audio: "audio/tag18.mp3",
                 aha: "Leite die gewohnte Handbewegung sofort um, noch bevor der alte Automatismus wieder die volle Kontrolle über dich übernimmt. Du kennst diesen unbewussten Griff, der jahrelang wie ferngesteuert abgelaufen ist, ohne dass du auch nur eine Sekunde darüber nachgedacht hast. Genau an diesem entscheidenden Punkt setzen wir jetzt an. Du bist dem Drang keineswegs hilflos ausgeliefert, sondern besitzt in jeder Sekunde die machtvolle Fähigkeit, das Skript dieses Ablaufs eigenhändig umzuschreiben und die Regie zurückzuholen.",
                 neuro: "Aus neurobiologischer Sicht nutzt die bewährte Habit-Reversal-Methode, auch Entkopplung genannt, eine winzige, aber extrem wertvolle Zeitverzögerung in der gesamten Handlungskette aus. Wenn die gewohnte Handbewegung kurz vor Gesicht oder Tasche gezielt umgeleitet wird, bricht der unbewusste Reflex augenblicklich zusammen, weil die gewohnte Endbelohnung ausbleibt. Dein Gehirn gerät kurz ins Stocken, realisiert die Veränderung und lernt mit jedem Mal schneller, dass der alte Ablauf ab sofort ungültig ist.",
                 action: "Hier ist deine heutige Entdeckung, um diese Technik perfekt in deinen Alltag zu integrieren: Wann immer deine Hand heute unbewusst zur Jackentasche, zur Hosentasche oder direkt zum Mund wandert, stoppst du diese Bewegung und leitest sie sofort um. Fasse dir stattdessen demonstrativ ans Ohr, greife zielstrebig nach deinem Wasserglas oder strecke den Arm weit nach oben. Durch diese einfache, aber extrem wirkungsvolle physische Umleitung verwirrst du den Autopiloten und verankerst Schritt für Schritt die neue, gesunde Handlungsfreiheit in deinem Nervensystem.",
@@ -1477,6 +1555,7 @@
             {
                 day: 19,
                 title: "Die Heilungs-Zeitachse",
+                audio: "audio/tag19.mp3",
                 aha: "Spüre die tiefe körperliche Erneuerung in jeder Zelle – deine Lunge und deine feinen Sinne regenerieren sich von Tag zu Tag spürbar mehr! Wir vergessen im Alltag viel zu schnell, wie rasant sich unser Organismus erholt, wenn man ihm endlich den lebenswichtigen Freiraum schenkt. Jedes Mal, wenn du heute tief einatmest, nimmst du frischen Sauerstoff auf, statt giftigen Rauch. Genieße dieses wachsende Gefühl von Vitalität, denn dein Körper bedankt sich jeden einzelnen Tag mit purer Kraft für deine Entscheidung zur Freiheit.",
                 neuro: "Aus neurobiologischer und medizinischer Sicht laufen in deinem Körper faszinierende Reparaturprozesse auf Hochtouren. Bereits nach zwei bis drei Tagen ohne Rauch beginnen sich die zuvor abgestumpften Nervenenden für Geruch und Geschmack vollständig zu regenerieren, sodass du plötzlich wieder Nuancen schmeckst, die jahrelang verborgen waren. Nach rund drei Monaten hat sich zudem deine Lungenkapazität um bis zu dreißig Prozent erhöht, was deine körperliche Ausdauer drastisch steigert und dir ein völlig neues Bewegungsgefühl schenkt.",
                 action: "Hier ist deine heutige Entdeckung, um diese positive körperliche Entwicklung schwarz auf weiß festzuhalten: Nimm dir einen Stift und schreibe alle positiven Veränderungen auf, die du an dir bereits spürst und genießt. Halte fest, wie viel tiefer dein Atem fließt, wie stark deine Ausdauer im Alltag gewachsen ist, wie intensiv Gerüche und Geschmäcker zurückkehren, wie viel Geld sich im Sparschwein angesammelt hat und wie frisch du insgesamt auftrittst. Dieses persönliche Erfolgsprotokoll ist dein unwiderlegbarer Beweis, dass sich der Weg aus der Sucht jeden einzelnen Tag gelohnt hat."
@@ -1484,6 +1563,7 @@
             {
                 day: 20,
                 title: "Glaubenssätze auflösen",
+                audio: "audio/tag20.mp3",
                 aha: "Durchschaue die alten Illusionen – Rauchen war nie ein wahrer Freund oder Stresskiller, sondern eine fesselnde Anspannungsschleife. Erkenne heute, wie oft dir dein Gehirn Geschichten erzählt hat, um die alte Sucht zu rechtfertigen.",
                 neuro: "Die psychische Abhängigkeit stützt sich maßgeblich auf unbewusste Mythen („Rauchen gibt mir Pause“, „Rauchen gehört dazu“). Wenn du diese festgefahrenen Glaubenssätze durch ehrliche Analysen entlarvst, löst sich das Gefühl von Verzicht vollständig auf und macht Platz für echte Gelassenheit.",
                 action: "Blicke auf deine Aufzeichnungen der letzten drei Wochen zurück. Vergleiche deine früheren Ausreden mit deiner heutigen klaren Sichtweise. Erkennst du, wie frei und stark dein Denken bereits geworden ist?"
@@ -1491,6 +1571,7 @@
             {
                 day: 21,
                 title: "Finale Transformation",
+                audio: "audio/tag21.mp3",
                 aha: "Du hast es geschafft! Du hast deine neuronalen Pfade neu verdrahtet – du bist ab heute ein vollkommen freier, gesunder Nichtraucher!",
                 neuro: "Nach 21 Tagen konsequenter Umprogrammierung sind deine neuen synaptischen Netzwerke tief verankert. Das alte Suchtgedächtnis ist deaktiviert. Die biologische Hürde ist überwunden, solange du dem ersten Zug nie wieder eine Chance gibst.",
                 action: "Zerschneide symbolisch eine leere Zigarettenschachtel. Belohne dich mit dem gesparten Geld der letzten 21 Tage für etwas, das dir echte Freude schenkt!",
@@ -1509,6 +1590,10 @@
 
         let completedDays = JSON.parse(localStorage.getItem(STORAGE_KEY_COMPLETED) || '[]');
         let userProfile = JSON.parse(localStorage.getItem(STORAGE_KEY_PROFILE) || 'null');
+
+        /* ---------- AUDIO CONTROL STATE ---------- */
+        let currentAudio = null;
+        let currentAudioDay = null;
 
         /* ---------- UNLOCKED DAYS CALCULATION ---------- */
         function getUnlockedDaysCount() {
@@ -1654,6 +1739,19 @@
                         '</div>';
                 }
 
+                // Audio player HTML
+                const audioHtml = 
+                    '<div class="audio-bar" onclick="event.stopPropagation()">' +
+                        '<button class="btn-audio" id="audioBtn' + item.day + '" onclick="toggleAudio(' + item.day + ', event)">' +
+                            '<span>&#9658;</span> Text vorlesen (MP3)' +
+                        '</button>' +
+                        '<div class="audio-info">' +
+                            '<span>&#127911; Audio:</span>' +
+                            '<span class="audio-time" id="audioTime' + item.day + '">0:00</span>' +
+                        '</div>' +
+                        '<audio id="audio-player-' + item.day + '" src="' + (item.audio || ('audio/tag' + item.day + '.mp3')) + '" preload="metadata"></audio>' +
+                    '</div>';
+
                 const isLocked = item.day > unlockedCount;
                 const isDone = completedDays.includes(item.day);
 
@@ -1682,6 +1780,7 @@
                         '</div>' +
                     '</div>' +
                     '<div class="day-content">' +
+                        audioHtml +
                         '<div class="highlight-box">' +
                             '<strong>&#128161; Aha-Moment:</strong>' +
                             '<p style="margin-top:8px;">' + item.aha + '</p>' +
@@ -1704,6 +1803,103 @@
             });
 
             updateProgress();
+        }
+
+        /* ---------- AUDIO CONTROL SYSTEM ---------- */
+        function toggleAudio(dayNum, event) {
+            if (event) event.stopPropagation();
+
+            const audioEl = document.getElementById('audio-player-' + dayNum);
+            const btnEl = document.getElementById('audioBtn' + dayNum);
+            const timeEl = document.getElementById('audioTime' + dayNum);
+
+            if (!audioEl) return;
+
+            // Stop other running audio
+            if (currentAudio && currentAudio !== audioEl) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                if (currentAudioDay) {
+                    const prevBtn = document.getElementById('audioBtn' + currentAudioDay);
+                    if (prevBtn) {
+                        prevBtn.classList.remove('playing');
+                        prevBtn.innerHTML = '<span>&#9658;</span> Text vorlesen (MP3)';
+                    }
+                }
+            }
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+
+            if (audioEl.paused) {
+                const playPromise = audioEl.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        currentAudio = audioEl;
+                        currentAudioDay = dayNum;
+                        btnEl.classList.add('playing');
+                        btnEl.innerHTML = '<span>&#10074;&#10074;</span> Pause';
+                    }).catch(err => {
+                        console.warn("MP3 konnte nicht abgespielt werden, versuche Browser-Sprachausgabe (Text-To-Speech):", err);
+                        speakTextFallback(dayNum);
+                    });
+                }
+            } else {
+                audioEl.pause();
+                btnEl.classList.remove('playing');
+                btnEl.innerHTML = '<span>&#9658;</span> Text vorlesen (MP3)';
+            }
+
+            audioEl.ontimeupdate = function() {
+                if (timeEl && audioEl.duration) {
+                    timeEl.textContent = formatTime(audioEl.currentTime) + ' / ' + formatTime(audioEl.duration);
+                }
+            };
+
+            audioEl.onended = function() {
+                btnEl.classList.remove('playing');
+                btnEl.innerHTML = '<span>&#9658;</span> Text vorlesen (MP3)';
+                if (timeEl) timeEl.textContent = '0:00';
+            };
+        }
+
+        function formatTime(sec) {
+            if (isNaN(sec)) return "0:00";
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return m + ":" + (s < 10 ? "0" : "") + s;
+        }
+
+        /* Fallback Speech Synthesis if MP3 is missing/not uploaded yet */
+        function speakTextFallback(dayNum) {
+            if (!('speechSynthesis' in window)) {
+                alert('Audio-Datei konnte nicht geladen werden.');
+                return;
+            }
+            const day = daysData.find(d => d.day === dayNum);
+            if (!day) return;
+
+            window.speechSynthesis.cancel();
+            const textToRead = "Tag " + day.day + ": " + day.title + ". Aha-Moment: " + day.aha + ". Neuro-Fokus: " + day.neuro + ". Deine heutige Aufgabe: " + day.action;
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.lang = 'de-DE';
+            utterance.rate = 1.0;
+
+            const btnEl = document.getElementById('audioBtn' + dayNum);
+            if (btnEl) {
+                btnEl.classList.add('playing');
+                btnEl.innerHTML = '<span>&#10074;&#10074;</span> Vorlesen stoppen';
+            }
+
+            utterance.onend = function() {
+                if (btnEl) {
+                    btnEl.classList.remove('playing');
+                    btnEl.innerHTML = '<span>&#9658;</span> Text vorlesen (MP3)';
+                }
+            };
+
+            window.speechSynthesis.speak(utterance);
         }
 
         /* ---------- COMPLETE DAY ---------- */
